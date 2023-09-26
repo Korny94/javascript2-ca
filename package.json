@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "sass src/scss:dist"
+    "build": "sass src/scss:dist/css"
   },
   "keywords": [],
   "author": "",
