@@ -11889,6 +11889,8 @@ textarea.form-control-lg {
 .comments {
   max-height: 10rem;
   overflow: scroll;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 .commentAvatar {
@@ -11917,6 +11919,18 @@ textarea.form-control-lg {
 body {
   background-color: rgba(247, 247, 247, 0.289);
   margin-top: 6rem;
+  scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar,
+.comments::-webkit-scrollbar {
+  width: 15px;
+}
+
+html::-webkit-scrollbar-thumb,
+.comments::-webkit-scrollbar-thumb {
+  background-color: rgba(148, 148, 156, 0.431372549);
+  border-radius: 4px;
 }
 
 /*# sourceMappingURL=styles.css.map */

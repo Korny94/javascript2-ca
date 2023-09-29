@@ -36,6 +36,8 @@
 .comments {
   max-height: 10rem;
   overflow: scroll;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 .commentAvatar {
@@ -64,4 +66,16 @@
 body {
   background-color: rgba(247, 247, 247, 0.289);
   margin-top: 6rem;
+  scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar,
+.comments::-webkit-scrollbar {
+  width: 15px;
+}
+
+html::-webkit-scrollbar-thumb,
+.comments::-webkit-scrollbar-thumb {
+  background-color: #94949c6e;
+  border-radius: 4px;
 }
