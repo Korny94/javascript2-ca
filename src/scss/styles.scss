@@ -4,3 +4,58 @@
 #logo {
   width: 30%;
 }
+
+.loading {
+  margin: auto;
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #3498db;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 2000ms linear infinite;
+  padding: 2rem;
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin-top: 6rem;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.reactions {
+  width: 5rem;
+}
+
+.comments {
+  max-height: 10rem;
+  overflow: scroll;
+}
+
+.commentAvatar {
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+}
+
+.postImage {
+  margin: auto;
+  width: 95%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 3px solid black;
+}
+
+.card {
+  max-width: 50rem;
+  border: 3px solid black;
+  border-radius: 15px;
+  padding-bottom: 5px;
+}

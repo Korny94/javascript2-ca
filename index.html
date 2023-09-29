@@ -7,6 +7,8 @@
 
     <link rel="stylesheet" href="/dist/css/styles.css" />
     <script src="/src/scss/bootstrap.bundle.min.js" defer></script>
+    <script src="/js/signUp.js" defer></script>
+    <script src="/js/signIn.js" defer></script>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -56,8 +58,8 @@
             <input
               type="email"
               class="form-control"
-              id="exampleFormControlInput1"
-              placeholder="name@example.com"
+              id="loginEmail"
+              placeholder="name@noroff.no"
               required
             />
           </div>
@@ -65,45 +67,26 @@
             <input
               type="password"
               class="form-control"
-              id="inputPassword"
+              id="loginPassword"
               placeholder="Password (Min. 8 Characters)"
               pattern=".{8,}"
               required
             />
           </div>
           <div class="col-xs-12 col-sm-3">
-            <button type="submit" class="btn btn-primary">Log in</button>
+            <button type="submit" class="btn btn-primary" id="submitLogin">
+              Log in
+            </button>
           </div>
         </form>
       </div>
       <div class="container mt-5">
         <h2 class="mb-4">Register new account</h2>
         <form class="row g-3 needs-validation">
-          <div class="col-md-4">
-            <label for="validationCustom01" class="form-label"
-              >First name</label
-            >
-            <input
-              type="text"
-              class="form-control"
-              id="validationCustom01"
-              required
-            />
-            <div class="valid-feedback">Looks good!</div>
-          </div>
-          <div class="col-md-4">
-            <label for="validationCustom02" class="form-label">Last name</label>
-            <input
-              type="text"
-              class="form-control"
-              id="validationCustom02"
-              required
-            />
-            <div class="valid-feedback">Looks good!</div>
-          </div>
-          <div class="col-md-4">
+          <div class="col-md-12">
             <label for="validationCustomUsername" class="form-label"
-              >Username</label
+              >Username (Must not contain punctuation symbols apart from
+              underscore)</label
             >
             <div class="input-group has-validation">
               <span class="input-group-text" id="inputGroupPrepend">@</span>
@@ -112,28 +95,31 @@
                 class="form-control"
                 id="validationCustomUsername"
                 aria-describedby="inputGroupPrepend"
+                placeholder="my_username123"
                 required
               />
               <div class="invalid-feedback">Please choose a username.</div>
             </div>
           </div>
           <div class="col-md-6">
-            <label for="exampleFormControlInput1" class="form-label"
-              >Email address</label
+            <label for="validationCustomEmail" class="form-label"
+              >Email address (Must end in @noroff.no or @stud.noroff.no)</label
             >
             <input
               type="email"
               class="form-control"
-              id="exampleFormControlInput1"
-              placeholder="name@example.com"
+              id="validationCustomEmail"
+              placeholder="name@noroff.no"
             />
           </div>
           <div class="col-md-6">
-            <label for="inputPassword5" class="form-label">Password</label>
+            <label for="validationCustomPassword" class="form-label"
+              >Password (Min. 8 Characters)</label
+            >
             <input
               type="password"
               class="form-control"
-              id="inputPassword"
+              id="validationCustomPassword"
               placeholder="Password (Min. 8 Characters)"
               pattern=".{8,}"
               required
@@ -157,7 +143,9 @@
             </div>
           </div>
           <div class="col-12">
-            <button class="btn btn-primary" type="submit">Submit form</button>
+            <button class="btn btn-primary" type="submit" id="submitRegister">
+              Create account
+            </button>
           </div>
         </form>
       </div>
