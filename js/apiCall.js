@@ -6,7 +6,6 @@ const postsUrl = `https://api.noroff.dev/api/v1/social/posts?_author=true&_comme
 async function getWithToken(url) {
   try {
     const postsContainer = document.querySelector("#postsContainer");
-    const mainContainer = document.querySelector("#mainContainer");
     console.log(url);
     const token = localStorage.getItem("accessToken");
     const fetchOptions = {
@@ -20,7 +19,7 @@ async function getWithToken(url) {
     console.log(response);
     const json = await response.json();
     console.log(json);
-    mainContainer.classList.remove("loading");
+    postsContainer.classList.remove("loading");
     json.forEach(function (post) {
       const updatedShort = post.updated.substring(0, 10);
 
@@ -63,10 +62,13 @@ async function getWithToken(url) {
 
       postsContainer.innerHTML += `
       <div class="card m-auto mt-5 mb-5"">
-      <div class="card-body d-flex align-items-center gap-2">
+      <div class="card-body d-flex justify-content-between">
+      <div class=" d-flex align-items-center gap-2">        
       <img src="${imageUrlAvatar}" class="commentAvatar">
-      <li class="list-group-item">${capitalizedAuthorName}</li>
-    </div>
+        <li class="list-group-item">${capitalizedAuthorName}</li>
+      </div>
+      <button type="button" class="btn-close" aria-label="Close"></button>
+      </div>
             <img src="${imageUrl}" class="card-img-top postImage">
             <div class="card-body d-flex justify-content-between">
               <li class="list-group-item">Posted: ${updatedShort}</li>
@@ -96,9 +98,9 @@ async function getWithToken(url) {
         `;
     });
   } catch (error) {
-    mainContainer.classList.remove("loading");
-    mainContainer.classList.add("error");
-    mainContainer.innerHTML = "There was an error!";
+    postsContainer.classList.remove("loading");
+    postsContainer.classList.add("error");
+    postsContainer.innerHTML = "There was an error!";
     console.log(error);
   }
 }
