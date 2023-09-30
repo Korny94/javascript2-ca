@@ -52,8 +52,8 @@
     </nav>
     <main class="mb-5">
       <div class="container mt-5">
-        <h2 class="mb-4">Login</h2>
-        <form action="" class="row g-4 needs-validation">
+        <h2 class="mb-4" id="loginFailed">Login</h2>
+        <form class="row g-4 needs-validation">
           <div class="col-xs-12 col-sm-4">
             <input
               type="email"
@@ -62,6 +62,7 @@
               placeholder="name@noroff.no"
               required
             />
+            <p class="fw-semibold" id="popoverMessage"></p>
           </div>
           <div class="col-xs-12 col-sm-5">
             <input
@@ -72,6 +73,7 @@
               pattern=".{8,}"
               required
             />
+            <p class="fw-semibold" id="popoverMessage2"></p>
           </div>
           <div class="col-xs-12 col-sm-3">
             <button type="submit" class="btn btn-primary" id="submitLogin">
