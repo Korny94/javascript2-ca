@@ -11855,8 +11855,10 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-#logo {
-  width: 8%;
+.logoLink {
+  min-width: 2rem;
+  max-width: 4rem;
+  width: 4%;
 }
 
 .loading {
@@ -11923,14 +11925,31 @@ body {
 }
 
 html::-webkit-scrollbar,
-.comments::-webkit-scrollbar {
+.comments::-webkit-scrollbar,
+.loginForm::-webkit-scrollbar {
   width: 15px;
 }
 
 html::-webkit-scrollbar-thumb,
-.comments::-webkit-scrollbar-thumb {
+.comments::-webkit-scrollbar-thumb,
+.loginForm::-webkit-scrollbar-thumb {
   background-color: rgba(148, 148, 156, 0.431372549);
   border-radius: 4px;
+}
+
+.loginForm {
+  margin: auto;
+  width: 80%;
+  max-width: 800px;
+  height: max-content;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 15px;
+  box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.1);
 }
 
 /*# sourceMappingURL=styles.css.map */
