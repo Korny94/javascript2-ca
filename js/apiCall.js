@@ -1,5 +1,3 @@
-// ...
-
 // Append query parameters to the URL to include all optional properties
 const postsUrl = `https://api.noroff.dev/api/v1/social/posts?_author=true&_comments=true&_reactions=true`;
 
@@ -20,6 +18,7 @@ async function getWithToken(url) {
     const json = await response.json();
     console.log(json);
     postsContainer.classList.remove("loading");
+
     json.forEach(function (post) {
       const updatedShort = post.updated.substring(0, 10);
 
@@ -60,7 +59,7 @@ async function getWithToken(url) {
         ? post.author.avatar
         : "/assets/noImage.png";
 
-      postsContainer.innerHTML += `
+      const postsContainerInnerHTML = DOMPurify.sanitize(`
       <div class="card m-auto mt-5 mb-5"">
       <div class="card-body d-flex justify-content-between">
       <div class=" d-flex align-items-center gap-2">        
@@ -95,12 +94,13 @@ async function getWithToken(url) {
               <li class="list-group-item comments">${commentsHtml}</li>
             </ul>
           </div>
-        `;
+        `);
+      postsContainer.innerHTML += postsContainerInnerHTML;
     });
   } catch (error) {
     postsContainer.classList.remove("loading");
     postsContainer.classList.add("error");
-    postsContainer.innerHTML = "There was an error!";
+    postsContainer.innerText = "There was an error!";
     console.log(error);
   }
 }

@@ -11856,7 +11856,7 @@ textarea.form-control-lg {
   }
 }
 #logo {
-  width: 30%;
+  width: 8%;
 }
 
 .loading {
@@ -11902,7 +11902,7 @@ textarea.form-control-lg {
 .postImage {
   margin: auto;
   width: 95%;
-  height: 100%;
+  max-height: 70vh;
   object-fit: cover;
   border-radius: 15px;
   border: 3px solid black;

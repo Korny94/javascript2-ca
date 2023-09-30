@@ -3,6 +3,7 @@ const loginPassword = document.querySelector("#loginPassword");
 const submitLogin = document.querySelector("#submitLogin");
 
 submitLogin.addEventListener("click", (event) => {
+  event.preventDefault();
   localStorage.setItem("email", loginEmail.value);
   localStorage.setItem("password", loginPassword.value);
   const userToLogin = {
@@ -10,6 +11,7 @@ submitLogin.addEventListener("click", (event) => {
     password: loginPassword.value,
   };
   const loginUrl = `${API_BASE_URL}/api/v1/social/auth/login`;
+
   loginUser(loginUrl, userToLogin);
 });
 
@@ -39,6 +41,11 @@ async function loginUser(url, userData) {
     console.log(json.accessToken);
     const accessToken = json.accessToken;
     localStorage.setItem("accessToken", accessToken);
+    localStorage.setItem("name", json.name);
+    localStorage.setItem("status", response.ok);
+    if (response.ok) {
+      window.location.href = "/html/profile.html";
+    }
   } catch (error) {
     console.log(error);
   }
