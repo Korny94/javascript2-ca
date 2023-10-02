@@ -41,7 +41,7 @@ async function getWithToken(url) {
           commentName.charAt(0).toUpperCase() + commentName.slice(1);
         commentsHtml += `
             <div class="comment-card border mb-2 p-2">
-              <p class="mb-0">${capitalizedCommentName}: ${comment.body}</p>
+              <p class="mb-0"><span class="commentName">${capitalizedCommentName}:</span>  ${comment.body}</p>
             </div>
           `;
       });
@@ -54,10 +54,10 @@ async function getWithToken(url) {
         authorName.charAt(0).toUpperCase() + authorName.slice(1);
 
       // Assuming post.media contains the image URL or is empty/null when there's no image
-      const imageUrl = post.media ? post.media : "/assets/noImage.png";
+      const imageUrl = post.media ? post.media : "/assets/noImage.jpg";
       const imageUrlAvatar = post.author.avatar
         ? post.author.avatar
-        : "/assets/noImage.png";
+        : "/assets/profileNoImage.png";
 
       const postsContainerInnerHTML = DOMPurify.sanitize(`
       <div class="card m-auto mt-5 mb-5"">
@@ -69,16 +69,17 @@ async function getWithToken(url) {
       <button type="button" class="btn-close" aria-label="Close"></button>
       </div>
             <img src="${imageUrl}" class="card-img-top postImage">
-            <div class="card-body d-flex justify-content-between">
-              <li class="list-group-item">Posted: ${updatedShort}</li>
-              <li class="list-group-item">ID: ${post.id}</li>
+            <div class="card-body d-flex justify-content-between postedId">
+              <li class="list-group-item"><span class="bold">Posted:</span> <span class="smallText">${updatedShort}</span></li>
+              <li class="list-group-item"><span class="bold">ID:</span>  <span class="smallText">${post.id}</span></li>
             </div>
             <div class="card-body">
               <h5 class="card-title">${post.title}</h5>
               <p class="card-text">${post.body}</p>
             </div>
             <ul class="list-group list-group-flush">
-              <div class="card-body">
+            <div class="d-flex">
+              <div class="card-body bodyReactions">
                 <li class="list-group-item reactions">
                   <div class="d-flex justify-content-between">
                   <div>
@@ -90,9 +91,19 @@ async function getWithToken(url) {
                   </div>
                 </li>
               </div>
-              <li class="list-group-item">Comments (${post.comments.length}):</li>
+              <div class="d-flex">
+              <p class="react" id="thumbsUp">👍</p>
+              <div class="react" id="thumbsDown">👎</div>
+              <div class="react" id="lol">🤣</div>
+              <div class="react" id="mad">😡</div>
+              </div>
+              </div>
+              <li class="list-group-item commentCount">Comments (${post.comments.length}):</li>
               <li class="list-group-item comments">${commentsHtml}</li>
             </ul>
+            <div class="input-group">
+            <textarea class="form-control commentPost" placeholder="Comment on this post" id="floatingTextarea2" style="height: 40px"></textarea>
+          </div>
           </div>
         `);
       postsContainer.innerHTML += postsContainerInnerHTML;

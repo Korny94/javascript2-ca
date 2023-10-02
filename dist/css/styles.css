@@ -11908,11 +11908,12 @@ textarea.form-control-lg {
   object-fit: cover;
   border-radius: 15px;
   border: 3px solid black;
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
 }
 
 .card {
-  max-width: 50rem;
-  border: 2px solid black;
+  max-width: 40rem;
+  border: 1.5px solid black;
   border-radius: 15px;
   padding-bottom: 5px;
   box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.1);
@@ -11926,13 +11927,15 @@ body {
 
 html::-webkit-scrollbar,
 .comments::-webkit-scrollbar,
-.loginForm::-webkit-scrollbar {
+.loginForm::-webkit-scrollbar,
+textarea::-webkit-scrollbar {
   width: 15px;
 }
 
 html::-webkit-scrollbar-thumb,
 .comments::-webkit-scrollbar-thumb,
-.loginForm::-webkit-scrollbar-thumb {
+.loginForm::-webkit-scrollbar-thumb,
+textarea::-webkit-scrollbar-thumb {
   background-color: rgba(148, 148, 156, 0.431372549);
   border-radius: 4px;
 }
@@ -11950,6 +11953,90 @@ html::-webkit-scrollbar-thumb,
 
 .navbar {
   box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.1);
+}
+
+#logo,
+button,
+.active {
+  border-radius: 50%;
+  box-shadow: 0 2px 6px 2px rgba(0, 0, 0, 0.1);
+}
+
+input {
+  box-shadow: 0 1px 6px 1px rgba(133, 133, 133, 0.1);
+}
+
+.list-group-item,
+.card-text {
+  margin: 0.4rem;
+  border: none;
+  font-size: 1.5rem;
+}
+
+.border {
+  border-radius: 20px;
+  box-shadow: 0 0 1px 0.3px rgb(0, 0, 0);
+}
+
+.comment-card * {
+  padding-left: 0.5rem;
+}
+
+.btn-close {
+  box-shadow: none;
+}
+
+.card-title {
+  text-align: center;
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.bodyReactions {
+  margin: 0;
+  padding: 0;
+}
+
+.bold {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.react {
+  height: fit-content;
+  cursor: pointer;
+  margin: 0.5rem;
+  font-size: 1.5rem;
+  transition-duration: 300ms;
+}
+
+.react:hover {
+  transform: scale(1.3);
+}
+
+.commentPost {
+  margin: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
+}
+
+.smallText {
+  font-size: 1rem;
+}
+
+.commentName {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.commentCount {
+  font-size: 1.1rem;
+}
+
+.postedId {
+  padding-top: 0;
 }
 
 /*# sourceMappingURL=styles.css.map */
