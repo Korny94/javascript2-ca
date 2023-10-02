@@ -11975,7 +11975,7 @@ input {
 
 .border {
   border-radius: 20px;
-  box-shadow: 0 0 1px 0.3px rgb(0, 0, 0);
+  box-shadow: 0 0 1px 0.6px rgb(0, 0, 0);
 }
 
 .comment-card * {
