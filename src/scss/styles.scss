@@ -32,12 +32,11 @@
 }
 
 .reactions {
-  margin: 1rem;
-  margin-left: 0;
-  margin-right: 0.4rem;
+  margin: 0.5rem 0.4rem 0 0;
+  padding-top: 0;
   padding-left: 0;
   width: 5.5rem;
-  height: 6rem;
+  max-height: 6rem;
   overflow: scroll;
   overflow-x: hidden;
 }
@@ -200,8 +199,9 @@ input {
 .commentCount {
   font-size: 1.1rem;
   font-weight: 600;
-  margin-bottom: 0;
-  margin-top: 0;
+  margin: 0;
+  padding-top: 0;
+  text-align: center;
 }
 
 .postedId {
@@ -232,7 +232,12 @@ input {
 }
 
 .singleComment {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   padding-left: 1rem;
   padding-right: 1rem;
+}
+
+.card > .list-group {
+  border-top: 2px solid #0523509f;
+  border-bottom: 2px solid #0523509f;
 }

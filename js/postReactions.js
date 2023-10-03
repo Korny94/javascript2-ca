@@ -52,7 +52,7 @@ export async function postReaction(url) {
 
     // Add a load event listener to scroll to the stored position when the page is fully loaded
     window.addEventListener("load", () => {
-      window.scrollTo(0, scrollPosition);
+      window.scrollTo(0, scrollPosition - 70);
     });
   } catch (error) {
     console.log(error);
