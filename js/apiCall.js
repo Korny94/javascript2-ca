@@ -44,10 +44,10 @@ async function getWithToken(url) {
         const capitalizedCommentName =
           commentName.charAt(0).toUpperCase() + commentName.slice(1);
         commentsHtml += `
-        <div class="comment-card border mb-2 p-2">
-          <p class="mb-0"><span class="commentName">${capitalizedCommentName}:</span>  ${comment.body}</p>
-        </div>
-      `;
+          <div class="comment-card border mb-2 p-2">
+            <p class="mb-0 singleComment"><span class="commentName">${capitalizedCommentName}:</span>  ${comment.body}</p>
+          </div>
+        `;
       });
 
       const authorName = post.author.name;
@@ -69,57 +69,52 @@ async function getWithToken(url) {
       // Sanitize and set the innerHTML
       postContainer.innerHTML = DOMPurify.sanitize(
         `
-  <div class="card-body d-flex justify-content-between">
-    <div class=" d-flex align-items-center gap-2">
-      <img src="${imageUrlAvatar}" class="commentAvatar">
-      <li class="list-group-item">${capitalizedAuthorName}</li>
-    </div>
-    <button type="button" class="btn-close" aria-label="Close"></button>
-  </div>
-  <img src="${imageUrl}" class="card-img-top postImage">
-  <div class="card-body d-flex justify-content-between postedId">
-    <li class="list-group-item"><span class="bold">Posted:</span> <span class="smallText">${updatedShort}</span></li>
-    <li class="list-group-item"><span class="bold">ID:</span>  <span class="smallText">${postId}</span></li>
-  </div>
-  <div class="card-body">
-    <h5 class="card-title">${post.title}</h5>
-    <p class="card-text">${post.body}</p>
-  </div>
-  <ul class="list-group list-group-flush">
-    <div class="d-flex">
-      <div class="card-body bodyReactions">
-        <li class="list-group-item reactions">
-          <div class="d-flex justify-content-between">
-            <div>
-              ${reactionsSymbolHtml}
-            </div>
-            <div>
-              ${reactionsCountHtml}
-            </div>
-          </div>
-        </li>
+    <div class="card-body d-flex justify-content-between">
+      <div class=" d-flex align-items-center gap-2">
+        <img src="${imageUrlAvatar}" class="commentAvatar">
+        <li class="list-group-item">${capitalizedAuthorName}</li>
       </div>
+      <button type="button" class="btn-close" aria-label="Close"></button>
+    </div>
+    <img src="${imageUrl}" class="card-img-top postImage">
+    <div class="card-body d-flex justify-content-between postedId">
+      <li class="list-group-item"><span class="bold">Posted:</span> <span class="smallText">${updatedShort}</span></li>
+      <li class="list-group-item"><span class="bold">ID:</span>  <span class="smallText">${postId}</span></li>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">${post.title}</h5>
+      <p class="card-text">${post.body}</p>
+    </div>
+    <ul class="list-group list-group-flush">
       <div class="d-flex">
-        <div class="react" id="thumbsUp_${postId}" data-symbol="👍">👍</div>
-        <div class="react" id="thumbsDown_${postId}" data-symbol="👎">👎</div>
-        <div class="react" id="lol_${postId}" data-symbol="🤣">🤣</div>
-        <div class="react" id="mad_${postId}" data-symbol="😡">😡</div>
+        <div class="card-body bodyReactions">
+          <li class="list-group-item reactions">
+            <div class="d-flex justify-content-between">
+              <div>
+                ${reactionsSymbolHtml}
+              </div>
+              <div>
+                ${reactionsCountHtml}
+              </div>
+            </div>
+          </li>
+        </div>
+        <div class="d-flex">
+          <div class="react" id="thumbsUp_${postId}" data-symbol="👍">👍</div>
+          <div class="react" id="thumbsDown_${postId}" data-symbol="👎">👎</div>
+          <div class="react" id="lol_${postId}" data-symbol="🤣">🤣</div>
+          <div class="react" id="mad_${postId}" data-symbol="😡">😡</div>
+        </div>
       </div>
+      <li class="list-group-item commentCount">Comments (${post.comments.length}):</li>
+      <li class="list-group-item comments">${commentsHtml}</li>
+    </ul>
+    <div class="input-group commentGroup">
+    <img src="../assets/send.png" class="send" id="sendComment_${postId}">
+      <textarea class="form-control commentPost" placeholder="Comment on this post" id="textComment_${postId}" style="height: 80px"></textarea>
     </div>
-    <li class="list-group-item commentCount">Comments (${post.comments.length}):</li>
-    <li class="list-group-item comments">${commentsHtml}</li>
-  </ul>
-  <div class="input-group commentGroup">
-  <img src="../assets/send.png" class="send" id="sendComment_${postId}">
-    <textarea class="form-control commentPost" placeholder="Comment on this post" id="textComment_${postId}" style="height: 80px"></textarea>
-  </div>
-`
+    `
       );
-      // Get the existing send button and textarea by their IDs
-      const sendCommentButton = document.querySelector(
-        `#sendComment_${postId}`
-      );
-      const commentInput = document.querySelector(`#textComment_${postId}`);
 
       postsContainer.appendChild(postContainer);
       addReactionListeners(postId, postReaction);

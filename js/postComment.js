@@ -13,13 +13,18 @@ export async function postComment(url, commentText) {
     };
 
     const response = await fetch(url, postData);
-    if (response.ok) {
-      // Comment posted successfully, you can handle this as needed
-      console.log("Comment posted successfully.");
-    } else {
-      // Handle error cases
-      console.error("Failed to post comment.");
-    }
+    const json = await response.json();
+
+    // 1. Store the current scroll position
+    const scrollPosition = window.scrollY || window.pageYOffset;
+
+    // 2. Reload the page and scroll to the stored position after it loads
+    window.location.reload();
+
+    // Add a load event listener to scroll to the stored position when the page is fully loaded
+    window.addEventListener("load", () => {
+      window.scrollTo(0, scrollPosition);
+    });
   } catch (error) {
     console.log(error);
   }

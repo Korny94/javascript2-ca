@@ -11,6 +11,7 @@
     <script src="../js/apiCall.js" defer type="module"></script>
     <script src="../js/postReactions.js" defer type="module"></script>
     <script src="../js/postComment.js" defer type="module"></script>
+    <script src="../js/postSorting.js" defer type="module"></script>
 
 
   </head>
@@ -91,12 +92,11 @@
           </form>
         <div class="form-floating mt-3">
             <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-              <option selected>Newest</option>
-              <option value="1">Oldest</option>
-              <option value="3">Most comments</option>
-              <option value="3">Most reactions</option>
-              <option value="2">ID</option>
-    
+              <option value="0" id="newest">Newest</option>
+              <option value="1" id="oldest">Oldest</option>
+              <option value="2" id="Popularity">Popularity</option>
+              <option value="3" id="mostComments">Most comments</option>
+              <option value="4" id="mostReactions">Most reactions</option>
             </select>
             <label for="floatingSelect">Sort by</label>
             
