@@ -1,12 +1,50 @@
-// fetch("https://api.noroff.dev/api/v1/social/posts/2124/react/👍", {
-//   method: "PUT",
-//   body: JSON.stringify({}),
-//   headers: {
-//     "Content-type": "application/json; charset=UTF-8",
-//     authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NjQ4LCJuYW1lIjoidGVzdF91c2VyX2tvcm55IiwiZW1haWwiOiJ0ZXN0X3VzZXJfa29ybnlAc3R1ZC5ub3JvZmYubm8iLCJhdmF0YXIiOm51bGwsImJhbm5lciI6bnVsbCwiaWF0IjoxNjk2MjAyOTYxfQ.22XWwtXyKWr8Of__YfRewft1Q93p4rC1olkXcZqXYCo`,
-//   },
-// })
-//   .then((response) => response.json())
-//   .then((json) => console.log(json));
+// Function to add click event listeners for reactions
+export function addReactionListeners(postId, postReaction) {
+  const thumbsUp = document.querySelector(`#thumbsUp_${postId}`);
+  const thumbsDown = document.querySelector(`#thumbsDown_${postId}`);
+  const lol = document.querySelector(`#lol_${postId}`);
+  const mad = document.querySelector(`#mad_${postId}`);
 
-//   const reactionUrl = `https://api.noroff.dev/api/v1/social/posts/${id}/react/${symbol}`;
+  thumbsUp.addEventListener("click", function () {
+    const reactUrl = `https://api.noroff.dev/api/v1/social/posts/${postId}/react/👍`;
+    postReaction(reactUrl);
+  });
+
+  thumbsDown.addEventListener("click", function () {
+    const reactUrl = `https://api.noroff.dev/api/v1/social/posts/${postId}/react/👎`;
+    postReaction(reactUrl);
+  });
+
+  lol.addEventListener("click", function () {
+    const reactUrl = `https://api.noroff.dev/api/v1/social/posts/${postId}/react/🤣`;
+    postReaction(reactUrl);
+  });
+
+  mad.addEventListener("click", function () {
+    const reactUrl = `https://api.noroff.dev/api/v1/social/posts/${postId}/react/😡`;
+    postReaction(reactUrl);
+  });
+}
+
+// Function to handle post reactions
+export async function postReaction(url) {
+  const token = localStorage.getItem("accessToken");
+  console.log(token);
+  try {
+    const postData = {
+      method: "PUT",
+      body: JSON.stringify({}),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    const response = await fetch(url, postData);
+    const json = await response.json();
+
+    console.log(response);
+  } catch (error) {
+    console.log(error);
+  }
+}

@@ -32,7 +32,10 @@
 }
 
 .reactions {
-  width: 5rem;
+  width: 6.5rem;
+  height: 6rem;
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
 .comments {
@@ -77,14 +80,16 @@ body {
 html::-webkit-scrollbar,
 .comments::-webkit-scrollbar,
 .loginForm::-webkit-scrollbar,
-textarea::-webkit-scrollbar {
+textarea::-webkit-scrollbar,
+.reactions::-webkit-scrollbar {
   width: 15px;
 }
 
 html::-webkit-scrollbar-thumb,
 .comments::-webkit-scrollbar-thumb,
 .loginForm::-webkit-scrollbar-thumb,
-textarea::-webkit-scrollbar-thumb {
+textarea::-webkit-scrollbar-thumb,
+.reactions::-webkit-scrollbar-thumb {
   background-color: #94949c6e;
   border-radius: 4px;
 }
@@ -166,12 +171,13 @@ input {
 }
 
 .commentPost {
-  margin: 1.2rem;
-  margin-top: 1.5rem;
+  margin-top: 0.35rem;
   border-radius: 10px;
   border: 2px solid rgba(147, 190, 255, 0.5);
   background-color: rgb(238, 238, 238, 0.2);
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.5);
+  padding-right: 5rem;
+  border-radius: 40px;
 }
 
 .smallText {
@@ -185,8 +191,32 @@ input {
 .commentCount {
   font-size: 1.1rem;
   font-weight: 600;
+  margin-bottom: 0;
+  margin-top: 0;
 }
 
 .postedId {
   padding-top: 0;
+}
+
+.send {
+  z-index: 100;
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  margin-right: 1rem;
+  margin-top: 0.4rem;
+  cursor: pointer;
+  transition-duration: 300ms;
+  right: 2rem;
+}
+
+.send:hover {
+  transform: scale(1.2);
+}
+
+.commentGroup {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
 }
