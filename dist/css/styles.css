@@ -11885,9 +11885,11 @@ textarea.form-control-lg {
   }
 }
 .reactions {
-  padding: 0;
-  padding-right: 1rem;
-  width: 5rem;
+  margin: 1rem;
+  margin-left: 0;
+  margin-right: 0.4rem;
+  padding-left: 0;
+  width: 5.5rem;
   height: 6rem;
   overflow: scroll;
   overflow-x: hidden;
@@ -11908,7 +11910,7 @@ textarea.form-control-lg {
 
 .postImage {
   margin: auto;
-  width: 90%;
+  width: 95%;
   max-height: 70vh;
   object-fit: cover;
   border-radius: 15px;
@@ -11920,8 +11922,13 @@ textarea.form-control-lg {
   max-width: 40rem;
   border: 3.5px solid rgba(5, 35, 80, 0.6235294118);
   border-radius: 15px;
-  padding-bottom: 5px;
+  padding: 1rem;
   box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.1);
+}
+
+.topBody {
+  padding: 0;
+  margin-bottom: 1rem;
 }
 
 body {
@@ -11975,7 +11982,6 @@ input {
 
 .list-group-item,
 .card-text {
-  margin: 1.2rem;
   border: none;
   font-size: 1.5rem;
 }
@@ -12071,6 +12077,7 @@ input {
 
 .commentGroup {
   padding: 1rem;
+  padding-bottom: 0.5rem;
   display: flex;
   align-items: center;
 }

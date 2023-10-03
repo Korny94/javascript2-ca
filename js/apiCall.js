@@ -69,7 +69,7 @@ async function getWithToken(url) {
       // Sanitize and set the innerHTML
       postContainer.innerHTML = DOMPurify.sanitize(
         `
-    <div class="card-body d-flex justify-content-between">
+    <div class="card-body d-flex justify-content-between topBody">
       <div class=" d-flex align-items-center gap-2">
         <img src="${imageUrlAvatar}" class="commentAvatar">
         <li class="list-group-item">${capitalizedAuthorName}</li>
