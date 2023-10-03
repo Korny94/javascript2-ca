@@ -12,6 +12,7 @@
     <script src="../js/postReactions.js" defer type="module"></script>
     <script src="../js/postComment.js" defer type="module"></script>
     <script src="../js/postSorting.js" defer type="module"></script>
+    <script src="../js/createEntry.js" defer type="module"></script>
 
 
   </head>
@@ -65,14 +66,20 @@
             <div class="row d-flex flex-column">
                 <div class="col-md-8 col-sm-12 m-auto">
                     <div class="input-group">
-                        <textarea class="form-control" placeholder="What's on your mind?" id="floatingTextarea2" style="height: 100px"></textarea>
+                      <textarea class="form-control" placeholder="Title" id="titlePost" style="height: 50px"></textarea>
+
                       </div>
+                      <div class="input-group">
+                        <textarea class="form-control" placeholder="What's on your mind?" id="bodyPost" style="height: 100px"></textarea>
+  
+                        </div>
+
                   </div>
 
                 <div class="col-md-8 col-sm-12 mt-2 m-auto">
                     <div class="input-group">
-                        <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-                        <button class="btn btn-primary col-4" type="button" id="inputGroupFileAddon04">Post</button>
+                      <textarea class="form-control" placeholder="Link an image" id="mediaPost" style="height: 30px;"></textarea>
+                      <button class="btn btn-primary col-4" type="button" id="createPostButton">Post</button>
                       </div>
                 </div>
                 

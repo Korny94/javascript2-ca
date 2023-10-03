@@ -8,7 +8,6 @@ const postsUrl = `https://api.noroff.dev/api/v1/social/posts?_author=true&_comme
 async function getWithToken(url) {
   try {
     const postsContainer = document.querySelector("#postsContainer");
-    console.log(url);
     const token = localStorage.getItem("accessToken");
     const fetchOptions = {
       method: "GET",
