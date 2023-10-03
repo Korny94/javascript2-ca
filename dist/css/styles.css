@@ -11885,7 +11885,9 @@ textarea.form-control-lg {
   }
 }
 .reactions {
-  width: 6.5rem;
+  padding: 0;
+  padding-right: 1rem;
+  width: 5rem;
   height: 6rem;
   overflow: scroll;
   overflow-x: hidden;
@@ -12056,8 +12058,8 @@ input {
   position: absolute;
   width: 2rem;
   height: 2rem;
-  margin-right: 1rem;
-  margin-top: 0.4rem;
+  margin-right: 0.5rem;
+  margin-top: 0.3rem;
   cursor: pointer;
   transition-duration: 300ms;
   right: 2rem;
@@ -12074,6 +12076,7 @@ input {
 }
 
 .singleComment {
+  font-size: 1.3rem;
   padding-left: 1rem;
   padding-right: 1rem;
 }
