@@ -12144,6 +12144,7 @@ input {
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition-duration: 300ms;
+  object-position: top;
 }
 
 .bannerPic:hover,
