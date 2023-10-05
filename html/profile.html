@@ -7,6 +7,8 @@
     <link rel="icon" href="../assets/logo.png" type="image/x-icon" />
     <link rel="stylesheet" href="/dist/css/styles.css" />
     <script src="/src/scss/bootstrap.bundle.min.js" defer></script>
+    <script src="/js/updateMedia.js" defer></script>
+    <script src="/js/myProfile.js" defer></script>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
@@ -46,6 +48,41 @@
         </ul>
       </div>
     </nav>
-    <main class="mb-5"></main>
+    <main class="container mb-5" id="profileBannerPic">
+      <div class="row align-items-center m-auto" id="">
+        <div class="col-12 d-flex justify-content-center" id="">
+          <img
+            class="bannerPic"
+            id="bannerPic"
+            src="https://cdn.pixabay.com/photo/2013/07/13/11/44/penguin-158551_1280.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="row mt-5 d-flex align-items-center m-auto" id="">
+        <div class="col-sm-12 col-md-6 d-flex flex-column align-items-center">
+          <img
+            class="profilePic"
+            id="profilePic"
+            src="https://cdn.pixabay.com/photo/2013/07/12/15/55/penguin-150563_640.png"
+            alt=""
+          />
+          <h2 class="profileName text-center" id="profileName">@username</h2>
+        </div>
+        <div class="col-sm-12 col-md-4 mt-2 d-flex flex-column gap-4">
+          <button class="btn btn-primary">Follow</button>
+          <button
+            class="btn btn-primary bg-dark"
+            id="followers"
+            disabled
+          ></button>
+          <button
+            class="btn btn-primary bg-dark"
+            id="following"
+            disabled
+          ></button>
+        </div>
+      </div>
+    </main>
   </body>
 </html>

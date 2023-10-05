@@ -266,6 +266,40 @@ input {
   font-size: 1.2rem;
 }
 
+.profilePic {
+  width: 15vw;
+  height: 15vw;
+  min-width: 100px;
+  min-height: 100px;
+  border-radius: 100%;
+  border: 3px solid black;
+  box-shadow: 0 0 10px 5px rgb(0, 0, 0, 0.1);
+  object-fit: cover;
+  cursor: pointer;
+  transition-duration: 300ms;
+}
+
+.profileName {
+  font-size: clamp(1rem, 2.5vw, 2rem);
+}
+
+.bannerPic {
+  height: 30vh;
+  width: 50vw;
+  min-width: 350px;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 3px solid black;
+  box-shadow: 0 0 10px 5px rgb(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition-duration: 300ms;
+}
+
+.bannerPic:hover,
+.profilePic:hover {
+  transform: scale(1.02);
+}
+
 @media (max-width: 499px) {
   h2 {
     font-size: 1rem;
