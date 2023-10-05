@@ -85,60 +85,44 @@
             </button>
           </form>
         </div>
-        <div class="col-s-12 m-auto mt-3 loginForm">
-          <h2 class="text-center m-3">Register new account</h2>
-          <form class="row g-3 needs-validation">
+        <div class="col-s-12 m-auto mt-3 mb-3 loginForm">
+          <h2 class="text-center m-3 registerH2">Register new account</h2>
+          <form class="row needs-validation">
             <div class="col-10 m-auto">
-              <label for="validationCustomUsername" class="form-label"></label>
-              <div class="input-group has-validation">
+              <label for="signUpUsername" class="form-label"></label>
+              <div class="input-group">
                 <span class="input-group-text" id="inputGroupPrepend">@</span>
                 <input
                   type="text"
                   class="form-control"
-                  id="validationCustomUsername"
-                  aria-describedby="inputGroupPrepend"
+                  id="signUpUsername"
                   placeholder="my_username123"
                   required
                 />
-                <div class="invalid-feedback">Please choose a username.</div>
               </div>
+              <p class="fw-semibold ms-1" id="popoverMessage5"></p>
             </div>
             <div class="col-10 m-auto">
-              <label for="validationCustomEmail" class="form-label"></label>
+              <label for="signUpEmail" class="form-label"></label>
               <input
                 type="email"
                 class="form-control"
-                id="validationCustomEmail"
+                id="signUpEmail"
                 placeholder="email@noroff.no"
               />
+              <p class="fw-semibold ms-1" id="popoverMessage3"></p>
             </div>
             <div class="col-10 m-auto">
-              <label for="validationCustomPassword" class="form-label"></label>
+              <label for="signUpPassword" class="form-label"></label>
               <input
                 type="password"
                 class="form-control"
-                id="validationCustomPassword"
+                id="signUpPassword"
                 placeholder="Password (Min. 8 Characters)"
                 pattern=".{8,}"
                 required
               />
-            </div>
-            <div class="col-12 d-flex justify-content-center mt-3">
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="invalidCheck"
-                  required
-                />
-                <label class="form-check-label" for="invalidCheck">
-                  Agree to terms and conditions
-                </label>
-                <div class="invalid-feedback">
-                  You must agree before submitting.
-                </div>
-              </div>
+              <p class="fw-semibold ms-1" id="popoverMessage4"></p>
             </div>
             <button
               class="btn btn-primary col-8 m-auto mt-3 mb-3"

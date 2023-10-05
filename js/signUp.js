@@ -1,26 +1,66 @@
-const userName = document.querySelector("#validationCustomUsername");
-const email = document.querySelector("#validationCustomEmail");
-const password = document.querySelector("#validationCustomPassword");
+const userName = document.querySelector("#signUpUsername");
+const email = document.querySelector("#signUpEmail");
+const password = document.querySelector("#signUpPassword");
 const submitRegister = document.querySelector("#submitRegister");
+const registerH2 = document.querySelector(".registerH2");
+const popoverMessageEmail = document.querySelector("#popoverMessage3");
+const popoverMessagePassword = document.querySelector("#popoverMessage4");
+const popoverMessageUsername = document.querySelector("#popoverMessage5");
 
 submitRegister.addEventListener("click", (event) => {
-  console.log(userName.value, email.value, password.value);
+  event.preventDefault();
+
+  // Get the user input values from the form
+  const name = userName.value;
+  const userEmail = email.value;
+  const userPassword = password.value;
+
+  // Define regular expressions for email format and password length
+  const emailRegex = /^[a-zA-Z0-9._-]+@(noroff\.no|stud\.noroff\.no)$/i;
+  const passwordRegex = /^.{8,}$/;
+  const usernameRegex = /^[a-zA-Z0-9._-]{3,}$/;
+
+  if (!usernameRegex.test(name)) {
+    popoverMessageUsername.innerText =
+      "Username must be at least 3 characters long. (Only letters, numbers & underscores)";
+    userName.classList.add("border-danger");
+    return;
+  } else userName.classList.remove("border-danger");
+  userName.classList.add("border-success");
+  popoverMessageUsername.innerText = "";
+
+  // Check if the email and password match the required formats
+  if (!emailRegex.test(userEmail)) {
+    popoverMessageEmail.innerText = "Please use @noroff.no or @stud.noroff.no.";
+    email.classList.add("border-danger");
+    return;
+  } else email.classList.remove("border-danger");
+  email.classList.add("border-success");
+  popoverMessageEmail.innerText = "";
+
+  if (!passwordRegex.test(userPassword)) {
+    popoverMessagePassword.innerText =
+      "Password must be at least 8 characters long.";
+    password.classList.add("border-danger");
+    return;
+  } else password.classList.remove("border-danger");
+  password.classList.add("border-success");
+  popoverMessagePassword.innerText = "";
+
+  // Create the user data object
   const userToRegister = {
-    name: userName.value,
-    email: email.value,
-    password: password.value,
+    name: name,
+    email: userEmail,
+    password: userPassword,
   };
   const registerUrl = `${API_BASE_URL}/api/v1/social/auth/register`;
+
+  // Call the registerUser function
   registerUser(registerUrl, userToRegister);
 });
 
 // Url for all the api calls
 const API_BASE_URL = "https://api.noroff.dev";
-
-// ENDPOINTS:
-// Register: api/v1//social/auth/register
-// Login: api/v1//social/auth/login
-// Get All Posts: api/v1//social/posts
 
 // SIGN UP USER
 
@@ -47,27 +87,14 @@ async function registerUser(url, userData) {
     console.log(response);
     const json = await response.json();
     console.log(json);
+    if (response.ok === true) {
+      registerH2.classList.add("text-success");
+      registerH2.innerText = "Registration successful, please sign in.";
+    } else {
+      registerH2.classList.add("text-danger");
+      registerH2.innerText = "Registration failed, please try again.";
+    }
   } catch (error) {
     console.log(error);
   }
 }
-
-// Example User
-// const userToRegister = {
-//   name: "test_user_korny1",
-//   email: "test_user_korny1@stud.noroff.no",
-//   password: "Rbkebest94!",
-// };
-
-const registerUrl = `${API_BASE_URL}/api/v1/social/auth/register`;
-
-// registerUser(registerUrl, userToRegister);
-
-// Sign up user info
-// const userInfo = {
-//   name: "my_username", // Required (A unique username)
-//   email: "first.last@stud.noroff.no", // Required (A unique email)
-//   password: "UzI1NiIsInR5cCI", // Required (A password)
-//   avatar: "https://img.service.com/avatar.jpg", // Optional (A link to an avatar image)
-//   banner: "https://img.service.com/banner.jpg", // Optional (A link to a banner image)
-// };

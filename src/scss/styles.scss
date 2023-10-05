@@ -265,3 +265,9 @@ input {
   max-width: 35vw;
   font-size: 1.2rem;
 }
+
+@media (max-width: 499px) {
+  h2 {
+    font-size: 1rem;
+  }
+}

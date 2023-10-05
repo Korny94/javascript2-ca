@@ -81,10 +81,3 @@ async function loginUser(url, userData) {
 }
 
 const loginUrl = `${API_BASE_URL}/api/v1/social/auth/login`;
-
-// const userToLogin = {
-//   email: "test_user_korny@stud.noroff.no",
-//   password: "Rbkebest94!",
-// };
-
-// loginUser(loginUrl, userToLogin);
