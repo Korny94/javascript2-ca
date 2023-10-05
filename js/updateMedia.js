@@ -1,7 +1,36 @@
-async function editMedia(bannerUrl, avatarUrl) {
+const avatarPic = document.querySelector("#profilePic");
+const bannerPic = document.querySelector("#bannerPic");
+
+async function editAvatar(avatarUrl) {
   const token = localStorage.getItem("accessToken");
   const username = localStorage.getItem("name");
-  const editMediaUrl = `https://api.noroff.dev/api/v1//social/profiles/${username}/media`;
+  const editAvatarUrl = `https://api.noroff.dev/api/v1/social/profiles/${username}/media`;
+
+  try {
+    const postData = {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        avatar: avatarUrl,
+      }),
+    };
+
+    const response = await fetch(editAvatarUrl, postData);
+    const json = await response.json();
+    console.log(json);
+    location.reload();
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function editBanner(bannerUrl) {
+  const token = localStorage.getItem("accessToken");
+  const username = localStorage.getItem("name");
+  const editBannerUrl = `https://api.noroff.dev/api/v1/social/profiles/${username}/media`;
 
   try {
     const postData = {
@@ -12,42 +41,31 @@ async function editMedia(bannerUrl, avatarUrl) {
       },
       body: JSON.stringify({
         banner: bannerUrl,
-        avatar: avatarUrl,
       }),
     };
 
-    const response = await fetch(editMediaUrl, postData);
+    const response = await fetch(editBannerUrl, postData);
     const json = await response.json();
     console.log(json);
-
-    // 1. Store the current scroll position
-    const scrollPosition = window.scrollY || window.pageYOffset;
-
-    // 2. Reload the page and scroll to the stored position after it loads
-    window.location.reload();
-
-    // Add a load event listener to scroll to the stored position when the page is fully loaded
-    window.addEventListener("load", () => {
-      window.scrollTo(0, scrollPosition - 70);
-    });
+    location.reload();
   } catch (error) {
     console.log(error);
   }
 }
 
-// Function to attach the comment event listener
-function editMediaEventListener(postId, post) {
-  const deletePostButton = document.querySelector(`#deletePost_${postId}`);
+// Function to attach the edit media event listener
+function editMediaEventListener() {
+  bannerPic.addEventListener("click", () => {
+    console.log("Banner clicked");
+    const bannerUrl = prompt("Enter new banner-image URL");
+    editBanner(bannerUrl);
+  });
 
-  deletePostButton.addEventListener("click", () => {
-    if (localStorage.getItem("name") !== post.author.name) {
-      alert("You can only delete your own posts.");
-      return;
-    }
-    if (!confirm("Are you sure you want to delete this post?")) {
-      return;
-    }
-    const deleteUrl = `https://api.noroff.dev/api/v1/social/posts/${postId}`;
-    editMedia(bannerUrl, avatarUrl);
+  avatarPic.addEventListener("click", () => {
+    console.log("Avatar clicked");
+    const avatarUrl = prompt("Enter new profile-image URL");
+    editAvatar(avatarUrl);
   });
 }
+
+editMediaEventListener();
