@@ -1,6 +1,7 @@
 // Import the functions from the react module
 import { addReactionListeners, postReaction } from "./postReactions.js";
 import { postComment, attachCommentEventListener } from "./postComment.js";
+import { deletePostEventListener } from "./deleteEntry.js";
 
 // Append query parameters to the URL to include all optional properties
 const postsUrl = `https://api.noroff.dev/api/v1/social/posts?_author=true&_comments=true&_reactions=true`;
@@ -73,7 +74,7 @@ async function getWithToken(url) {
         <img src="${imageUrlAvatar}" class="commentAvatar">
         <li class="list-group-item">${capitalizedAuthorName}</li>
       </div>
-      <button type="button" class="btn-close" aria-label="Close"></button>
+      <button type="button" class="btn-close" aria-label="Close" id="deletePost_${postId}"></button>
     </div>
     <img src="${imageUrl}" class="card-img-top postImage">
     <div class="card-body d-flex justify-content-between postedId">
@@ -118,6 +119,7 @@ async function getWithToken(url) {
       postsContainer.appendChild(postContainer);
       addReactionListeners(postId, postReaction);
       attachCommentEventListener(postId);
+      deletePostEventListener(postId);
     });
   } catch (error) {
     postsContainer.classList.remove("loading");
