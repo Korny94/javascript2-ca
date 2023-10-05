@@ -12112,4 +12112,8 @@ input {
   align-items: center;
 }
 
+.authorName {
+  max-width: 30vw;
+}
+
 /*# sourceMappingURL=styles.css.map */

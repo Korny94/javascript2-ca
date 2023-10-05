@@ -73,7 +73,7 @@ async function getWithToken(url) {
     <div class="card-body d-flex justify-content-between topBody" id="cardBody_${postId}">
       <div class=" d-flex align-items-center gap-2">
         <img src="${imageUrlAvatar}" class="commentAvatar">
-        <li class="list-group-item">${capitalizedAuthorName}</li>
+        <li class="list-group-item authorName">${capitalizedAuthorName}</li>
       </div>
       <div class="editDeleteBtns">
         <img src="../assets/edit.png" title="Edit post" class="editBtn" id="editPost_${postId}">
