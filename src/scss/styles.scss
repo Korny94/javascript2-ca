@@ -145,6 +145,7 @@ input {
 
 .btn-close {
   box-shadow: none;
+  transition-duration: 300ms;
 }
 
 .card-title {
@@ -240,4 +241,22 @@ input {
 .card > .list-group {
   border-top: 2px solid #0523509f;
   border-bottom: 2px solid #0523509f;
+}
+
+.editBtn {
+  width: 30px;
+  cursor: pointer;
+  transition-duration: 300ms;
+}
+
+.editBtn:hover,
+.btn-close:hover {
+  transform: scale(1.2);
+}
+
+.editDeleteBtns {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-between;
+  align-items: center;
 }

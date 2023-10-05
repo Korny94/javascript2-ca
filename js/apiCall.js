@@ -2,6 +2,7 @@
 import { addReactionListeners, postReaction } from "./postReactions.js";
 import { postComment, attachCommentEventListener } from "./postComment.js";
 import { deletePostEventListener } from "./deleteEntry.js";
+import { editPostEventListener } from "./editEntry.js";
 
 // Append query parameters to the URL to include all optional properties
 const postsUrl = `https://api.noroff.dev/api/v1/social/posts?_author=true&_comments=true&_reactions=true`;
@@ -69,12 +70,15 @@ async function getWithToken(url) {
       // Sanitize and set the innerHTML
       postContainer.innerHTML = DOMPurify.sanitize(
         `
-    <div class="card-body d-flex justify-content-between topBody">
+    <div class="card-body d-flex justify-content-between topBody" id="cardBody_${postId}">
       <div class=" d-flex align-items-center gap-2">
         <img src="${imageUrlAvatar}" class="commentAvatar">
         <li class="list-group-item">${capitalizedAuthorName}</li>
       </div>
-      <button type="button" class="btn-close" aria-label="Close" id="deletePost_${postId}"></button>
+      <div class="editDeleteBtns">
+        <img src="../assets/edit.png" title="Edit post" class="editBtn" id="editPost_${postId}">
+        <button type="button" title="Delete post" class="btn-close" aria-label="Close" id="deletePost_${postId}"></button>
+      </div>
     </div>
     <img src="${imageUrl}" class="card-img-top postImage">
     <div class="card-body d-flex justify-content-between postedId">
@@ -120,6 +124,15 @@ async function getWithToken(url) {
       addReactionListeners(postId, postReaction);
       attachCommentEventListener(postId);
       deletePostEventListener(postId, post);
+      const editPostButton = document.querySelector(`#editPost_${postId}`);
+      editPostButton.onclick = function () {
+        if (localStorage.getItem("name") !== post.author.name) {
+          alert("You can only edit your own posts.");
+          return;
+        } else {
+          editPostEventListener(postId, post);
+        }
+      };
     });
   } catch (error) {
     postsContainer.classList.remove("loading");
