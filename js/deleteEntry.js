@@ -11,6 +11,7 @@ export async function deletePost(url) {
 
     const response = await fetch(url, postData);
     const json = await response.json();
+    console.log(json);
 
     // 1. Store the current scroll position
     const scrollPosition = window.scrollY || window.pageYOffset;
@@ -28,10 +29,17 @@ export async function deletePost(url) {
 }
 
 // Function to attach the comment event listener
-export function deletePostEventListener(postId) {
+export function deletePostEventListener(postId, post) {
   const deletePostButton = document.querySelector(`#deletePost_${postId}`);
 
   deletePostButton.addEventListener("click", () => {
+    if (localStorage.getItem("name") !== post.author.name) {
+      alert("You can only delete your own posts.");
+      return;
+    }
+    if (!confirm("Are you sure you want to delete this post?")) {
+      return;
+    }
     const deleteUrl = `https://api.noroff.dev/api/v1/social/posts/${postId}`;
     deletePost(deleteUrl);
   });

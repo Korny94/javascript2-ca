@@ -119,7 +119,7 @@ async function getWithToken(url) {
       postsContainer.appendChild(postContainer);
       addReactionListeners(postId, postReaction);
       attachCommentEventListener(postId);
-      deletePostEventListener(postId);
+      deletePostEventListener(postId, post);
     });
   } catch (error) {
     postsContainer.classList.remove("loading");
