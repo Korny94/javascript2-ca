@@ -3,12 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Profile | TeeTalk</title>
+    <title></title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js"
+      integrity="sha512-H+rglffZ6f5gF7UJgvH4Naa+fGCgjrHKMgoFOGmcPTRwR6oILo5R+gtzNrpDp7iMV3udbymBVjkeZGNz1Em4rQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
     <link rel="icon" href="../assets/logo.png" type="image/x-icon" />
     <link rel="stylesheet" href="/dist/css/styles.css" />
     <script src="/src/scss/bootstrap.bundle.min.js" defer></script>
     <script src="/js/othersProfile.js" defer></script>
     <script src="/js/follow.js" defer></script>
+    <script src="/js/profilePosts.js" defer type="module"></script>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
@@ -37,7 +45,7 @@
       >
         <ul class="nav nav-pills d-flex justify-content-center">
           <li class="nav-item">
-            <a class="nav-link">Profile</a>
+            <a class="nav-link" href="/html/profile.html">Profile</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/html/feed.html">Feed</a>
@@ -75,6 +83,7 @@
           ></button>
         </div>
       </div>
+      <div id="profilePosts"></div>
     </main>
   </body>
 </html>

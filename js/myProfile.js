@@ -4,6 +4,10 @@ const profileName = document.querySelector("#profileName");
 const followers = document.querySelector("#followers");
 const following = document.querySelector("#following");
 
+const title = document.querySelector("title");
+
+title.innerHTML = localStorage.getItem("name") + "'s Profile" + " | TeeTalk";
+
 async function getProfile() {
   try {
     const username = localStorage.getItem("name");

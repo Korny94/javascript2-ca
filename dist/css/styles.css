@@ -12120,8 +12120,10 @@ input {
 .profilePic {
   width: 15vw;
   height: 15vw;
-  min-width: 100px;
-  min-height: 100px;
+  min-width: 150px;
+  min-height: 150px;
+  max-width: 300px;
+  max-height: 300px;
   border-radius: 100%;
   border: 3px solid black;
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
@@ -12131,13 +12133,14 @@ input {
 }
 
 .profileName {
-  font-size: clamp(1rem, 2.5vw, 2rem);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  max-width: 250px;
 }
 
 .bannerPic {
   height: 30vh;
   width: 50vw;
-  min-width: 350px;
+  min-width: 340px;
   object-fit: cover;
   border-radius: 15px;
   border: 3px solid black;
