@@ -56,14 +56,18 @@ async function editBanner(bannerUrl) {
 // Function to attach the edit media event listener
 function editMediaEventListener() {
   bannerPic.addEventListener("click", () => {
-    console.log("Banner clicked");
     const bannerUrl = prompt("Enter new banner-image URL");
+    if (!bannerUrl) {
+      return;
+    }
     editBanner(bannerUrl);
   });
 
   avatarPic.addEventListener("click", () => {
-    console.log("Avatar clicked");
     const avatarUrl = prompt("Enter new profile-image URL");
+    if (!avatarUrl) {
+      return;
+    }
     editAvatar(avatarUrl);
   });
 }

@@ -71,7 +71,7 @@ async function getWithToken(url) {
       postContainer.innerHTML = DOMPurify.sanitize(
         `
     <div class="card-body d-flex justify-content-between topBody" id="cardBody_${postId}">
-      <div class=" d-flex align-items-center gap-2">
+      <div class=" d-flex align-items-center gap-2" id="otherProfile">
         <img src="${imageUrlAvatar}" class="commentAvatar">
         <li class="list-group-item authorName">${capitalizedAuthorName}</li>
       </div>
@@ -120,6 +120,11 @@ async function getWithToken(url) {
     `
       );
 
+      const otherProfile = postContainer.querySelector("#otherProfile");
+      otherProfile.onclick = function () {
+        localStorage.setItem("otherProfile", post.author.name);
+        window.location.href = "othersProfile.html";
+      };
       postsContainer.appendChild(postContainer);
       addReactionListeners(postId, postReaction);
       attachCommentEventListener(postId);
