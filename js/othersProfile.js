@@ -12,7 +12,7 @@ title.innerHTML =
 async function getProfile() {
   try {
     const username = localStorage.getItem("otherProfile");
-    const postsUrl = `https://api.noroff.dev/api/v1/social/profiles/${username}`;
+    const postsUrl = `https://api.noroff.dev/api/v1/social/profiles/${username}?_following=true&_followers=true&_posts=true`;
     const profileBannerPic = document.querySelector("#profileBannerPic");
     const token = localStorage.getItem("accessToken");
     const fetchOptions = {
@@ -26,6 +26,52 @@ async function getProfile() {
     console.log(response);
     const json = await response.json();
     console.log(json);
+    console.log(json.followers);
+
+    const followers = document.querySelector("#followers");
+    const following = document.querySelector("#following");
+
+    // Function to create follower/following cards and attach click event listeners
+    function createFollowerCards(data, containerSelector) {
+      let cardsHTML = "";
+
+      data.forEach(function (element) {
+        const username = element.name;
+        cardsHTML += DOMPurify.sanitize(
+          `
+      <div class="d-flex align-items-center gap-2 border p-2 mb-3 follower-card" data-username="${username}">
+        <img src="${
+          element.avatar ? element.avatar : "/assets/profileNoImage.png"
+        }" alt="Avatar" class="followersAvatar">
+        <h3 class="follower-name">${element.name}</h3>
+      </div>
+      `
+        );
+      });
+
+      const container = document.querySelector(containerSelector);
+      container.innerHTML = cardsHTML;
+
+      // Attach click event listeners to each card
+      const cards = container.querySelectorAll(".follower-card");
+      cards.forEach((card) => {
+        card.addEventListener("click", function () {
+          const username = card.getAttribute("data-username");
+          localStorage.setItem("otherProfile", username);
+          window.location.href = "../html/othersProfile.html";
+        });
+      });
+    }
+
+    // Handle "Following" click event
+    following.onclick = function () {
+      createFollowerCards(json.following, "#followersModalBody");
+    };
+
+    // Handle "Followers" click event
+    followers.onclick = function () {
+      createFollowerCards(json.followers, "#followersModalBody");
+    };
 
     profileBannerPic.classList.remove("loading");
     profileName.innerText = "@" + username;

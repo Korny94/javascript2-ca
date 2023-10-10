@@ -48,10 +48,12 @@
   scroll-behavior: smooth;
 }
 
-.commentAvatar {
+.commentAvatar,
+.followersAvatar {
   border-radius: 100%;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
+  position: absolute;
 }
 
 .postImage {
@@ -137,10 +139,6 @@ input {
 .border {
   border-radius: 20px;
   box-shadow: 0 0 2px 0.6px rgba(0, 0, 0);
-}
-
-.comment-card * {
-  padding-left: 0.5rem;
 }
 
 .btn-close {
@@ -234,8 +232,10 @@ input {
 
 .singleComment {
   font-size: 1.1rem;
-  padding-left: 1rem;
+  padding-left: 4rem;
   padding-right: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .card > .list-group {
@@ -264,6 +264,11 @@ input {
 .authorName {
   max-width: 35vw;
   font-size: 1.2rem;
+  margin-left: 3rem;
+}
+
+.follower-name {
+  margin-left: 3.5rem;
 }
 
 .profilePic {
@@ -301,6 +306,20 @@ input {
 
 .bannerPic:hover,
 .profilePic:hover {
+  transform: scale(1.02);
+}
+
+.comment-card {
+  word-break: break-all;
+}
+
+.follower-card {
+  cursor: pointer;
+  transition-duration: 300ms;
+  box-shadow: 0 0 3px 1.5px rgb(0, 0, 0, 0.1);
+}
+
+.follower-card:hover {
   transform: scale(1.02);
 }
 
