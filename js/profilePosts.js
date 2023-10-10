@@ -54,11 +54,13 @@ async function getProfilePosts() {
         for (let k = 0; k < post.comments.length; k++) {
           const comment = post.comments[k];
           const commentName = comment.owner;
+          const commentAvatar = comment.author.avatar;
           const capitalizedCommentName =
             commentName.charAt(0).toUpperCase() + commentName.slice(1);
           commentsHtml += `
-            <div class="comment-card border mb-2 p-2">
-              <p class="mb-0 singleComment"><span class="commentName">${capitalizedCommentName}:</span>  ${comment.body}</p>
+            <div class="comment-card border mb-2 p-2 d-flex align-items-center gap-2">
+              <img src="${commentAvatar}" alt="Avatar" class="commentAvatar ms-2">
+              <p class="singleComment"><span class="commentName">${capitalizedCommentName}:</span>  ${comment.body}</p>
             </div>
           `;
         }
