@@ -81,13 +81,3 @@ export function editPostEventListener(postId, post) {
     editPost(editUrl, updatedTitle, updatedBody, updatedMedia);
   });
 }
-
-// Add a load event listener to scroll to the stored position when the page is fully loaded
-window.addEventListener("load", () => {
-  // Read the stored scroll position from localStorage
-  const scrollPosition = localStorage.getItem("scrollPosition");
-  // Scroll to the stored position with a delay of 1 second
-  setTimeout(() => {
-    window.scrollTo(0, scrollPosition);
-  }, 3000); // 1000 milliseconds (1 second) delay
-});

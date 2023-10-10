@@ -269,6 +269,12 @@ async function getWithToken(url, data) {
       };
     });
 
+    // Read the stored scroll position from localStorage
+    const scrollPosition = localStorage.getItem("scrollPosition");
+    // Scroll to the stored position with a delay of 1 second
+    setTimeout(() => {
+      window.scrollTo(0, scrollPosition);
+    }, 1000);
     setTimeout(() => {
       localStorage.removeItem("scrollPosition");
     }, 3000);
