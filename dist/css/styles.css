@@ -11933,7 +11933,7 @@ textarea.form-control-lg {
 }
 
 body {
-  background-color: red;
+  background-color: rgba(247, 247, 247, 0.289);
   margin-top: 6rem;
   scroll-behavior: smooth;
 }

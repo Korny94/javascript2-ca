@@ -13,16 +13,11 @@ export async function deletePost(url) {
     const json = await response.json();
     console.log(json);
 
-    // 1. Store the current scroll position
-    const scrollPosition = window.scrollY || window.pageYOffset;
+    // Store the current scroll position in localStorage
+    localStorage.setItem("scrollPosition", window.scrollY);
 
-    // 2. Reload the page and scroll to the stored position after it loads
+    // Reload the page after editing the post
     window.location.reload();
-
-    // Add a load event listener to scroll to the stored position when the page is fully loaded
-    window.addEventListener("load", () => {
-      window.scrollTo(0, scrollPosition - 70);
-    });
   } catch (error) {
     console.log(error);
   }
@@ -44,3 +39,17 @@ export function deletePostEventListener(postId, post) {
     deletePost(deleteUrl);
   });
 }
+
+// Add a load event listener to scroll to the stored position when the page is fully loaded
+window.addEventListener("load", () => {
+  // Read the stored scroll position from localStorage
+  const scrollPosition = localStorage.getItem("scrollPosition");
+  if (scrollPosition !== null) {
+    // Scroll to the stored position with a delay of 1 second
+    setTimeout(() => {
+      window.scrollTo(0, scrollPosition);
+      // Remove the stored scroll position from localStorage
+      localStorage.removeItem("scrollPosition");
+    }, 1000); // 1000 milliseconds (1 second) delay
+  }
+});
