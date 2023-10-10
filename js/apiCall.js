@@ -155,7 +155,9 @@ async function getWithToken(url, data) {
 
       post.comments.forEach((comment) => {
         const commentName = comment.owner;
-        const commentAvatar = comment.author.avatar;
+        const commentAvatar = comment.author.avatar
+          ? comment.author.avatar
+          : "/assets/profileNoImage.png";
         const capitalizedCommentName =
           commentName.charAt(0).toUpperCase() + commentName.slice(1);
         commentsHtml += `

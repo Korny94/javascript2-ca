@@ -54,7 +54,9 @@ async function getProfilePosts() {
         for (let k = 0; k < post.comments.length; k++) {
           const comment = post.comments[k];
           const commentName = comment.owner;
-          const commentAvatar = comment.author.avatar;
+          const commentAvatar = comment.author.avatar
+            ? comment.author.avatar
+            : "/assets/profileNoImage.png";
           const capitalizedCommentName =
             commentName.charAt(0).toUpperCase() + commentName.slice(1);
           commentsHtml += `
