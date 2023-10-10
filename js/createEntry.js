@@ -59,9 +59,7 @@ window.addEventListener("load", () => {
   if (scrollPosition !== null) {
     // Scroll to the stored position with a delay of 1 second
     setTimeout(() => {
-      window.scrollTo(0, scrollPosition + 400);
-      // Remove the stored scroll position from localStorage
-      localStorage.removeItem("scrollPosition");
+      window.scrollTo(0, 400);
     }, 1000); // 1000 milliseconds (1 second) delay
   }
 });
