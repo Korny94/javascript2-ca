@@ -59,5 +59,5 @@ window.addEventListener("load", () => {
   // Scroll to the stored position with a delay of 1 second
   setTimeout(() => {
     window.scrollTo(0, 400);
-  }, 2000); // 1000 milliseconds (1 second) delay
+  }, 3000); // 1000 milliseconds (1 second) delay
 });
