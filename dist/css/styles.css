@@ -11889,7 +11889,7 @@ textarea.form-control-lg {
   padding-top: 0;
   padding-left: 0;
   width: 5.5rem;
-  max-height: 6rem;
+  max-height: 4rem;
   overflow: scroll;
   overflow-x: hidden;
 }
@@ -12050,7 +12050,7 @@ input {
   font-size: 1.1rem;
   font-weight: 600;
   margin: 0;
-  padding-top: 0;
+  padding-top: 1.5rem;
   text-align: center;
 }
 
