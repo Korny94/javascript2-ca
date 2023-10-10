@@ -58,7 +58,7 @@ async function getProfilePosts() {
           const capitalizedCommentName =
             commentName.charAt(0).toUpperCase() + commentName.slice(1);
           commentsHtml += `
-            <div class="comment-card border mb-2 p-2 d-flex align-items-center gap-2">
+            <div class="comment-card border mb-2 p-2 d-flex align-items-center comment-profile" data-owner="${commentName}">
               <img src="${commentAvatar}" alt="Avatar" class="commentAvatar ms-2">
               <p class="singleComment"><span class="commentName">${capitalizedCommentName}:</span>  ${comment.body}</p>
             </div>
@@ -139,6 +139,16 @@ async function getProfilePosts() {
         localStorage.setItem("otherProfile", post.author.name);
         window.location.href = "othersProfile.html";
       };
+      const commentProfiles =
+        postContainer.querySelectorAll(".comment-profile");
+
+      commentProfiles.forEach((commentProfile) => {
+        commentProfile.addEventListener("click", () => {
+          const owner = commentProfile.getAttribute("data-owner");
+          localStorage.setItem("otherProfile", owner);
+          window.location.href = "othersProfile.html";
+        });
+      });
       postsContainer.appendChild(postContainer);
       addReactionListeners(postId, postReaction);
       attachCommentEventListener(postId);
@@ -153,6 +163,9 @@ async function getProfilePosts() {
         }
       };
     }
+    setTimeout(() => {
+      localStorage.removeItem("scrollPosition");
+    }, 2000);
   } catch (error) {
     postsContainer.classList.remove("loading");
     postsContainer.classList.add("error");
