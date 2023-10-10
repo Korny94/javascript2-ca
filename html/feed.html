@@ -59,45 +59,34 @@
         </ul>
       </div>
     </nav>
-    <main class="container mb-5" id="mainContainer">
-        <div class="row mt-4">
-          <div class="col-6 loginForm pb-5 pt-4">
-            <h2 class="mb-4 text-center">Create new post</h2>
-            <div class="row d-flex flex-column">
-                <div class="col-md-8 col-sm-12 m-auto">
-                    <div class="input-group">
+    <main class="container mb-5 d-flex flex-column align-items-center" id="mainContainer">
+          <div class="row loginForm p-4 feedInputs mt-2">
+            <h2 class="col-12 text-center mb-3">Create new post</h2>
+            <div class="col-12">
+                  <div class="col-12">
+                    <div class="input-group mb-1">
                       <textarea class="form-control" placeholder="Title" id="titlePost" style="height: 50px"></textarea>
-
-                      </div>
-                      <div class="input-group">
-                        <textarea class="form-control" placeholder="What's on your mind?" id="bodyPost" style="height: 100px"></textarea>
-  
-                        </div>
-
+                    </div>
+                    <div class="input-group">
+                      <textarea class="form-control" placeholder="What's on your mind?" id="bodyPost" style="height: 100px"></textarea>
+                    </div>
                   </div>
-
-                <div class="col-md-8 col-sm-12 mt-2 m-auto">
+                  <div class="col-12 mt-2">
                     <div class="input-group">
                       <textarea class="form-control" placeholder="Link an image" id="mediaPost" style="height: 30px;"></textarea>
                       <button class="btn btn-primary col-4" type="button" id="createPostButton">Post</button>
-                      </div>
-                </div>
-                
-
-
-
+                    </div>
+                  </div>
             </div>
           </div>
-
-<div class="row d-flex justify-content-center mt-5 loginForm pt-4 pb-4">
-<h2 class="mb-3 text-center">Feed</h2>
-
-    <div class="col-md-8 col-sm-12 m-auto">
-        <form class="d-flex">
-            <input class="form-control me-2" placeholder="Search" id="searchInput">
-            <div class="btn btn-primary" id="searchButton">Search</div>
-          </form>
-        <div class="form-floating mt-3">
+          
+          <div class="row loginForm m-5 mb-3 p-4 feedInputs">
+            <h2 class="col-12 text-center mb-3">Feed</h2>
+            <form class="col-12 d-flex">
+              <input class="form-control me-2" placeholder="Search" id="searchInput">
+              <div class="btn btn-primary" id="searchButton">Search</div>
+            </form>
+            <div class="col-12 form-floating mt-3">
             <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
               <option value="0" id="newest">Newest</option>
               <option value="1" id="oldest">Oldest</option>
@@ -105,16 +94,9 @@
               <option value="3" id="mostComments">Most comments</option>
               <option value="4" id="mostReactions">Most reactions</option>
             </select>
-            <label for="floatingSelect">Sort by</label>
-            
+            <label for="floatingSelect" id="sortBy">Sort by</label>
+            </div>
           </div>
-
-    </div>
-
-
-</div>
-
-        </div>
         <div class="loading container" id="postsContainer">
     </main>
   </body>

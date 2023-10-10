@@ -6,6 +6,9 @@ const registerH2 = document.querySelector(".registerH2");
 const popoverMessageEmail = document.querySelector("#popoverMessage3");
 const popoverMessagePassword = document.querySelector("#popoverMessage4");
 const popoverMessageUsername = document.querySelector("#popoverMessage5");
+const signInHere = document.querySelector("#signInHere");
+const signUpForm = document.querySelector("#signUpForm");
+const signInForm = document.querySelector("#signInForm");
 
 submitRegister.addEventListener("click", (event) => {
   event.preventDefault();
@@ -88,8 +91,11 @@ async function registerUser(url, userData) {
     const json = await response.json();
     console.log(json);
     if (response.ok === true) {
-      registerH2.classList.add("text-success");
-      registerH2.innerText = "Registration successful, please sign in.";
+      registerH2.classList.remove("text-danger");
+      loginFailed.classList.add("text-success");
+      loginFailed.innerText = "Registration successful, please sign in.";
+      signUpForm.style.display = "none";
+      signInForm.style.display = "block";
     } else {
       registerH2.classList.add("text-danger");
       registerH2.innerText = "Registration failed, please try again.";
@@ -98,3 +104,9 @@ async function registerUser(url, userData) {
     console.log(error);
   }
 }
+
+signInHere.addEventListener("click", (event) => {
+  event.preventDefault();
+  signUpForm.style.display = "none";
+  signInForm.style.display = "block";
+});

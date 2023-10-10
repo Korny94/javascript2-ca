@@ -85,6 +85,11 @@ body {
   background-color: rgba(247, 247, 247, 0.289);
   margin-top: 6rem;
   scroll-behavior: smooth;
+  min-height: 85vh;
+}
+
+main {
+  min-height: 75vh;
 }
 
 html::-webkit-scrollbar,
@@ -102,17 +107,6 @@ textarea::-webkit-scrollbar-thumb,
 .reactions::-webkit-scrollbar-thumb {
   background-color: #94949c6e;
   border-radius: 4px;
-}
-
-.loginForm {
-  margin: auto;
-  width: 80%;
-  max-width: 800px;
-  height: max-content;
-  padding: 10px;
-  border: 1px solid black;
-  border-radius: 15px;
-  box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.1);
 }
 
 .navbar {
@@ -329,8 +323,46 @@ input {
   cursor: pointer;
 }
 
+.loginForm {
+  max-width: 700px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 15px;
+  box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.1);
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.formHeight {
+  height: 30vh;
+}
+
+#submitRegister,
+#submitLogin {
+  max-height: 50px;
+}
+
+#signUpForm {
+  height: 420px;
+}
+
+#signInForm {
+  height: 400px;
+}
+
+#sortBy {
+  position: absolute;
+  left: 0.5rem;
+}
+
+.feedInputs {
+  width: 100%;
+  overflow: hidden;
+  max-width: 40rem;
+}
+
 @media (max-width: 499px) {
   h2 {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 }

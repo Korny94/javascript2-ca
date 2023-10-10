@@ -4,6 +4,9 @@ const submitLogin = document.querySelector("#submitLogin");
 const popoverMessage = document.querySelector("#popoverMessage");
 const popoverMessage2 = document.querySelector("#popoverMessage2");
 const loginFailed = document.querySelector("#loginFailed");
+const signUpHere = document.querySelector("#signUpHere");
+
+signInForm.style.display = "none";
 
 submitLogin.addEventListener("click", (event) => {
   event.preventDefault();
@@ -81,3 +84,9 @@ async function loginUser(url, userData) {
 }
 
 const loginUrl = `${API_BASE_URL}/api/v1/social/auth/login`;
+
+signUpHere.addEventListener("click", (event) => {
+  event.preventDefault();
+  signInForm.style.display = "none";
+  signUpForm.style.display = "block";
+});
