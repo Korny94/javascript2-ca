@@ -268,9 +268,10 @@ async function getWithToken(url, data) {
         }
       };
     });
+
     setTimeout(() => {
       localStorage.removeItem("scrollPosition");
-    }, 2000);
+    }, 3000);
   } catch (error) {
     postsContainer.classList.remove("loading");
     postsContainer.classList.add("error");

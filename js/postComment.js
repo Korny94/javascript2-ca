@@ -43,10 +43,8 @@ export function attachCommentEventListener(postId) {
 window.addEventListener("load", () => {
   // Read the stored scroll position from localStorage
   const scrollPosition = localStorage.getItem("scrollPosition");
-  if (scrollPosition !== null) {
-    // Scroll to the stored position with a delay of 1 second
-    setTimeout(() => {
-      window.scrollTo(0, scrollPosition);
-    }, 1000); // 1000 milliseconds (1 second) delay
-  }
+  // Scroll to the stored position with a delay of 1 second
+  setTimeout(() => {
+    window.scrollTo(0, scrollPosition);
+  }, 2000); // 1000 milliseconds (1 second) delay
 });
