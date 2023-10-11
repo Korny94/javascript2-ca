@@ -25,7 +25,7 @@ submitRegister.addEventListener("click", (event) => {
 
   if (!usernameRegex.test(name)) {
     popoverMessageUsername.innerText =
-      "Username must be at least 3 characters long. (Only letters, numbers & underscores)";
+      "Min. 3 characters long. (Only letters, numbers & underscores)";
     userName.classList.add("border-danger");
     return;
   } else userName.classList.remove("border-danger");
@@ -93,12 +93,16 @@ async function registerUser(url, userData) {
     if (response.ok === true) {
       registerH2.classList.remove("text-danger");
       loginFailed.classList.add("text-success");
-      loginFailed.innerText = "Registration successful, please sign in.";
+
+      // Sanitize and set the innerHTML
+      loginFailed.innerHTML = DOMPurify.sanitize(
+        "Registration successful!<br>Please sign in."
+      );
       signUpForm.style.display = "none";
       signInForm.style.display = "block";
     } else {
       registerH2.classList.add("text-danger");
-      registerH2.innerText = "Registration failed, please try again.";
+      registerH2.innerText = "User already exists.";
     }
   } catch (error) {
     console.log(error);

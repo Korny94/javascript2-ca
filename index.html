@@ -7,6 +7,13 @@
     <link rel="icon" href="../assets/logo.png" type="image/x-icon" />
     <link rel="stylesheet" href="/dist/css/styles.css" />
     <script src="/src/scss/bootstrap.bundle.min.js" defer></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js"
+      integrity="sha512-H+rglffZ6f5gF7UJgvH4Naa+fGCgjrHKMgoFOGmcPTRwR6oILo5R+gtzNrpDp7iMV3udbymBVjkeZGNz1Em4rQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
     <script src="/js/signUp.js" defer></script>
     <script src="/js/signIn.js" defer></script>
   </head>
@@ -54,7 +61,10 @@
       class="container d-flex flex-column align-items-center justify-content-center"
     >
       <div class="row d-flex m-2">
-        <div id="signInForm" class="col-s-12 loginForm justify-content-evenly">
+        <div
+          id="signInForm"
+          class="col-s-12 loginForm justify-content-evenly feedInputs"
+        >
           <form class="row g-4 needs-validation">
             <h2 class="text-center mt-5" id="loginFailed">Login</h2>
 
@@ -86,13 +96,13 @@
             >
               Log in
             </button>
-            <div class="loginHere text-center">
+            <div class="loginHere text-center mt-1">
               Don't have an account?
               <a href="" id="signUpHere">Sign up</a>
             </div>
           </form>
         </div>
-        <div class="col-s-12 loginForm" id="signUpForm">
+        <div class="col-s-12 loginForm feedInputs" id="signUpForm">
           <form class="row needs-validation formHeight">
             <h2 class="text-center mt-3 mb-4 registerH2">
               Register new account
