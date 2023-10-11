@@ -4,7 +4,8 @@ let jsonData = [];
 // Add an event listener to the select element
 const selectElement = document.querySelector("#floatingSelect");
 
-selectElement.addEventListener("change", function () {
+// Define the event handler function
+function handleSelectChange() {
   const selectedValue = parseInt(selectElement.value);
 
   // Sort the JSON data based on the selected option
@@ -43,6 +44,24 @@ selectElement.addEventListener("change", function () {
 
   // Call the getWithToken function with the sorted data
   getWithToken(postsUrl, jsonData);
+}
+
+// Add the event listener with the named function as the handler
+selectElement.addEventListener("change", function () {
+  // Set the selected value in localStorage on change
+  const selectedValue = selectElement.value;
+  localStorage.setItem("selectedValue", selectedValue);
+  handleSelectChange();
+});
+
+window.addEventListener("load", function () {
+  // Get the stored selected value from localStorage
+  const selectedValue = localStorage.getItem("selectedValue");
+  if (selectElement) {
+    // Set the selected value in the select element
+    selectElement.value = selectedValue;
+    handleSelectChange();
+  }
 });
 
 // Add an event listener to the search button
@@ -268,7 +287,10 @@ async function getWithToken(url, data) {
         }
       };
     });
-
+    if (selectElement) {
+      const selectedValue = localStorage.getItem("selectedValue");
+      selectElement.value = selectedValue;
+    }
     // Read the stored scroll position from localStorage
     const scrollPosition = localStorage.getItem("scrollPosition");
     // Scroll to the stored position with a delay of 1 second

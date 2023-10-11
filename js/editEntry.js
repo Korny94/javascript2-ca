@@ -19,6 +19,7 @@ export async function editPost(url, updatedTitle, updatedBody, updatedMedia) {
     const response = await fetch(url, postData);
     const json = await response.json();
     console.log(json);
+
     // Store the current scroll position in localStorage
     localStorage.setItem("scrollPosition", window.scrollY);
 
