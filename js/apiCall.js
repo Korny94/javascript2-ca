@@ -59,8 +59,10 @@ window.addEventListener("load", function () {
   const selectedValue = localStorage.getItem("selectedValue");
   if (selectElement) {
     // Set the selected value in the select element
-    selectElement.value = selectedValue;
-    handleSelectChange();
+    if (selectElement.value !== selectedValue) {
+      selectElement.value = selectedValue;
+      handleSelectChange();
+    }
   }
 });
 
