@@ -6,7 +6,7 @@ const selectElement = document.querySelector("#floatingSelect");
 
 // Define the event handler function
 function handleSelectChange() {
-  const selectedValue = parseInt(selectElement.value);
+  const selectedValue = parseInt(localStorage.getItem("selectedValue"));
 
   // Sort the JSON data based on the selected option
   let sortedJson = [];
@@ -48,22 +48,12 @@ function handleSelectChange() {
 
 // Add the event listener with the named function as the handler
 selectElement.addEventListener("change", function () {
-  // Set the selected value in localStorage on change
-  const selectedValue = selectElement.value;
-  localStorage.setItem("selectedValue", selectedValue);
+  localStorage.setItem("selectedValue", selectElement.value);
   handleSelectChange();
 });
 
 window.addEventListener("load", function () {
-  // Get the stored selected value from localStorage
-  const selectedValue = localStorage.getItem("selectedValue");
-  if (selectElement) {
-    // Set the selected value in the select element
-    if (selectElement.value !== selectedValue) {
-      selectElement.value = selectedValue;
-      handleSelectChange();
-    }
-  }
+  handleSelectChange();
 });
 
 // Add an event listener to the search button
