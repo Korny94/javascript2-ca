@@ -4,9 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Feed | TeeTalk</title>
-<link rel="icon" href="../assets/logo.png" type="image/x-icon" />
+    <link rel="icon" href="../assets/logo.png" type="image/x-icon" />
     <link rel="stylesheet" href="/dist/css/styles.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js" integrity="sha512-H+rglffZ6f5gF7UJgvH4Naa+fGCgjrHKMgoFOGmcPTRwR6oILo5R+gtzNrpDp7iMV3udbymBVjkeZGNz1Em4rQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js"
+      integrity="sha512-H+rglffZ6f5gF7UJgvH4Naa+fGCgjrHKMgoFOGmcPTRwR6oILo5R+gtzNrpDp7iMV3udbymBVjkeZGNz1Em4rQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script src="../src/scss/bootstrap.bundle.min.js" defer></script>
     <script src="../js/apiCall.js" defer type="module"></script>
     <script src="../js/postReactions.js" defer type="module"></script>
@@ -14,7 +19,6 @@
     <script src="../js/createEntry.js" defer type="module"></script>
     <script src="../js/deleteEntry.js" defer type="module"></script>
     <script src="../js/editEntry.js" defer type="module"></script>
-
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
@@ -59,45 +63,84 @@
         </ul>
       </div>
     </nav>
-    <main class="container mb-5 d-flex flex-column align-items-center" id="mainContainer">
-          <div class="row loginForm p-4 feedInputs mt-2">
-            <h2 class="col-12 text-center mb-3">Create new post</h2>
-            <div class="col-12">
-                  <div class="col-12">
-                    <div class="input-group mb-1">
-                      <textarea class="form-control" placeholder="Title" id="titlePost" style="height: 50px"></textarea>
-                    </div>
-                    <div class="input-group">
-                      <textarea class="form-control" placeholder="What's on your mind?" id="bodyPost" style="height: 100px"></textarea>
-                    </div>
-                  </div>
-                  <div class="col-12 mt-2">
-                    <div class="input-group">
-                      <textarea class="form-control" placeholder="Link an image" id="mediaPost" style="height: 30px;"></textarea>
-                      <button class="btn btn-primary col-4" type="button" id="createPostButton">Post</button>
-                    </div>
-                  </div>
+    <main
+      class="container mb-5 d-flex flex-column align-items-center"
+      id="mainContainer"
+    >
+      <div class="row loginForm p-4 feedInputs mt-2">
+        <h2 class="col-12 text-center mb-3">Create new post</h2>
+        <div class="col-12">
+          <div class="col-12">
+            <div class="input-group mb-1">
+              <textarea
+                class="form-control"
+                placeholder="Title"
+                id="titlePost"
+                style="height: 50px"
+              ></textarea>
+            </div>
+            <div class="input-group">
+              <textarea
+                class="form-control"
+                placeholder="What's on your mind?"
+                id="bodyPost"
+                style="height: 100px"
+              ></textarea>
             </div>
           </div>
-          
-          <div class="row loginForm m-5 mb-3 p-4 feedInputs">
-            <h2 class="col-12 text-center mb-3">Feed</h2>
-            <form class="col-12 d-flex">
-              <input class="form-control me-2" placeholder="Search" id="searchInput">
-              <div class="btn btn-primary" id="searchButton">Search</div>
-            </form>
-            <div class="col-12 form-floating mt-3">
-            <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-              <option value="0" id="newest">Newest</option>
-              <option value="1" id="oldest">Oldest</option>
-              <option value="2" id="Popularity">Popularity</option>
-              <option value="3" id="mostComments">Most comments</option>
-              <option value="4" id="mostReactions">Most reactions</option>
-            </select>
-            <label for="floatingSelect" id="sortBy">Sort by</label>
+          <div class="col-12 mt-2">
+            <div class="input-group">
+              <textarea
+                class="form-control"
+                placeholder="Link an image"
+                id="mediaPost"
+                style="height: 30px"
+              ></textarea>
+              <button
+                class="btn btn-primary col-4"
+                type="button"
+                id="createPostButton"
+              >
+                Post
+              </button>
             </div>
           </div>
-        <div class="loading container" id="postsContainer">
+        </div>
+      </div>
+
+      <div class="row loginForm m-5 mb-3 p-4 feedInputs">
+        <h2 class="col-12 text-center mb-3">Feed</h2>
+        <form class="col-12 d-flex">
+          <input
+            class="form-control me-2"
+            placeholder="Search"
+            id="searchInput"
+          />
+          <div class="btn btn-primary" id="searchButton">Search</div>
+        </form>
+        <div class="col-12 form-floating mt-3">
+          <select
+            class="form-select"
+            id="floatingSelect"
+            aria-label="Floating label select example"
+          >
+            <option value="0" id="newest">Newest</option>
+            <option value="1" id="oldest">Oldest</option>
+            <option value="2" id="Popularity">Popularity</option>
+            <option value="3" id="mostComments">Most comments</option>
+            <option value="4" id="mostReactions">Most reactions</option>
+          </select>
+          <label for="floatingSelect" id="sortBy">Sort by</label>
+        </div>
+      </div>
+      <div class="loading container" id="postsContainer"></div>
     </main>
+    <img
+      src="../assets/toTop.png"
+      alt="Go to top"
+      class="toTop"
+      title="Go to top"
+      id="toTop"
+    />
   </body>
 </html>

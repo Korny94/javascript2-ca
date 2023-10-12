@@ -53,7 +53,9 @@ selectElement.addEventListener("change", function () {
 });
 
 window.addEventListener("load", function () {
-  handleSelectChange();
+  this.setTimeout(() => {
+    handleSelectChange();
+  }, 1000);
 });
 
 // Add an event listener to the search button

@@ -359,3 +359,16 @@ input {
   overflow: hidden;
   max-width: 40rem;
 }
+
+.toTop {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 100;
+  cursor: pointer;
+  transition-duration: 300ms;
+}
+
+.toTop:hover {
+  transform: scale(1.2);
+}
