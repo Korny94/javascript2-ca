@@ -365,10 +365,12 @@ input {
   bottom: 1rem;
   right: 1rem;
   z-index: 100;
-  cursor: pointer;
   transition-duration: 300ms;
+  background-color: rgb(245, 245, 245);
+  border-radius: 100%;
+  opacity: 0;
 }
 
 .toTop:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
 }

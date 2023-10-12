@@ -1,3 +1,21 @@
+const toTop = document.querySelector("#toTop");
+
+window.addEventListener("scroll", () => {
+  if (window.pageYOffset > 1000) {
+    toTop.style.opacity = ".6";
+    toTop.style.cursor = "pointer";
+  } else {
+    toTop.style.opacity = "0";
+    toTop.style.cursor = "default";
+  }
+});
+
+toTop.addEventListener("click", () => {
+  if (toTop.style.opacity !== "0") {
+    window.scrollTo(0, 0);
+  }
+});
+
 // Define a variable to store the JSON data
 let jsonData = [];
 

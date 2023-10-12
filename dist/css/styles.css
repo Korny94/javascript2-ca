@@ -12211,4 +12211,19 @@ input {
   max-width: 40rem;
 }
 
+.toTop {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 100;
+  transition-duration: 300ms;
+  background-color: rgb(245, 245, 245);
+  border-radius: 100%;
+  opacity: 0;
+}
+
+.toTop:hover {
+  transform: scale(1.1);
+}
+
 /*# sourceMappingURL=styles.css.map */
