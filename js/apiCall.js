@@ -312,6 +312,15 @@ async function getWithToken(url, data) {
     setTimeout(() => {
       localStorage.removeItem("scrollPosition");
     }, 3000);
+    if (postsContainer.innerHTML === "" && searchInput !== "") {
+      // No matching posts found, display a message
+      setTimeout(() => {
+        window.scrollTo(0, 1000);
+      }, 1001);
+      postsContainer.innerText = "No posts were found in this search.";
+      postsContainer.style.textAlign = "center";
+      postsContainer.style.fontSize = "1.2rem";
+    }
   } catch (error) {
     postsContainer.classList.remove("loading");
     postsContainer.classList.add("error");
