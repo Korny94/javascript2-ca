@@ -361,13 +361,12 @@ input {
 }
 
 .toTop {
+  width: 70px;
   position: fixed;
   bottom: 1rem;
   right: 1rem;
   z-index: 100;
   transition-duration: 300ms;
-  background-color: rgb(245, 245, 245);
-  border-radius: 100%;
   opacity: 0;
 }
 
