@@ -30,9 +30,7 @@ async function getProfile() {
       },
     };
     const response = await fetch(postsUrl, fetchOptions);
-    console.log(response);
     const json = await response.json();
-    console.log(json);
 
     const followers = document.querySelector("#followers");
     const following = document.querySelector("#following");
@@ -89,7 +87,6 @@ async function getProfile() {
     profileBannerPic.classList.remove("loading");
     profileBannerPic.classList.add("error");
     profileBannerPic.innerText = "There was an error!";
-    console.log(error);
   }
 }
 

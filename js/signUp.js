@@ -94,9 +94,7 @@ async function registerUser(url, userData) {
       },
     };
     const response = await fetch(url, postData);
-    console.log(response);
     const json = await response.json();
-    console.log(json);
     if (response.ok === true) {
       registerH2.classList.remove("text-danger");
       loginFailed.classList.add("text-success");
@@ -111,9 +109,7 @@ async function registerUser(url, userData) {
       registerH2.classList.add("text-danger");
       registerH2.innerText = "User already exists.";
     }
-  } catch (error) {
-    console.log(error);
-  }
+  } catch (error) {}
 }
 
 /**

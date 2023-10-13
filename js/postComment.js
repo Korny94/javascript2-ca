@@ -29,9 +29,7 @@ export async function postComment(url, commentText) {
 
     // Reload the page after editing the post
     window.location.reload();
-  } catch (error) {
-    console.log(error);
-  }
+  } catch (error) {}
 }
 
 /**

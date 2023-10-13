@@ -9,12 +9,6 @@ async function createPost() {
   try {
     const title = document.querySelector("#titlePost").value;
 
-    // Check if title is empty
-    if (!title) {
-      console.error("Title is required.");
-      return;
-    }
-
     const body = document.querySelector("#bodyPost").value;
     const mediaInput = document.querySelector("#mediaPost").value;
 
@@ -38,13 +32,6 @@ async function createPost() {
       fetchOptions
     );
 
-    if (response.ok) {
-      // Handle success, e.g., show a success message or update the UI
-      console.log("Post created successfully");
-    } else {
-      // Handle errors, e.g., show an error message
-      console.error("Error creating post");
-    }
     // Store the current scroll position in localStorage
     localStorage.setItem("scrollPosition", window.scrollY);
 
@@ -62,4 +49,14 @@ const createPostButton = document.querySelector("#createPostButton");
  * @event
  * @description Event listener for creating a post when the button is clicked.
  */
-createPostButton.addEventListener("click", createPost);
+createPostButton.addEventListener("click", () => {
+  const titlePost = document.querySelector("#titlePost");
+  const title = titlePost.value;
+  // Check if title is empty
+  if (!title) {
+    titlePost.classList.add("border-danger");
+    titlePost.placeholder = "Title is required";
+  } else {
+    createPost();
+  }
+});

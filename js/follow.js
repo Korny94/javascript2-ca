@@ -21,11 +21,8 @@ async function followUnfollowFunction(url) {
 
     const response = await fetch(url, postData);
     const json = await response.json();
-    console.log(json);
     location.reload();
-  } catch (error) {
-    console.log(error);
-  }
+  } catch (error) {}
 }
 
 const follow = document.querySelector("#follow");

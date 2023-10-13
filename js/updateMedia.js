@@ -28,11 +28,8 @@ async function editAvatar(avatarUrl) {
 
     const response = await fetch(editAvatarUrl, postData);
     const json = await response.json();
-    console.log(json);
     location.reload();
-  } catch (error) {
-    console.log(error);
-  }
+  } catch (error) {}
 }
 
 /**
@@ -62,11 +59,8 @@ async function editBanner(bannerUrl) {
 
     const response = await fetch(editBannerUrl, postData);
     const json = await response.json();
-    console.log(json);
     location.reload();
-  } catch (error) {
-    console.log(error);
-  }
+  } catch (error) {}
 }
 
 /**

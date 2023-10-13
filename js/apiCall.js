@@ -144,15 +144,12 @@ async function fetchData() {
       },
     };
     const response = await fetch(postsUrl, fetchOptions);
-    console.log(response);
     jsonData = await response.json(); // Store the data in the jsonData variable
-    console.log(jsonData);
 
     // Call the getWithToken function initially with the unsorted data
     getWithToken(postsUrl, jsonData);
   } catch (error) {
     // Handle errors
-    console.error(error);
   }
 }
 
@@ -182,9 +179,7 @@ async function getWithToken(url, data) {
       },
     };
     const response = await fetch(url, fetchOptions);
-    console.log(response);
     const json = await response.json();
-    console.log(json);
     postsContainer.classList.remove("loading");
     postsContainer.innerHTML = ""; // Clear the postsContainer
 
@@ -352,6 +347,5 @@ async function getWithToken(url, data) {
     postsContainer.innerText = "There was an error!";
     postsContainer.style.textAlign = "center";
     postsContainer.style.fontSize = "1.2rem";
-    console.log(error);
   }
 }

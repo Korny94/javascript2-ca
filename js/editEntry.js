@@ -27,16 +27,13 @@ export async function editPost(url, updatedTitle, updatedBody, updatedMedia) {
 
     const response = await fetch(url, postData);
     const json = await response.json();
-    console.log(json);
 
     // Store the current scroll position in localStorage
     localStorage.setItem("scrollPosition", window.scrollY);
 
     // Reload the page after editing the post
     window.location.reload();
-  } catch (error) {
-    console.error("An error occurred:", error);
-  }
+  } catch (error) {}
 }
 
 /**
@@ -92,9 +89,16 @@ export function editPostEventListener(postId, post) {
     const updatedTitle = document.querySelector(`#titlePost_${postId}`).value;
     const updatedBody = document.querySelector(`#bodyPost_${postId}`).value;
     const updatedMedia = document.querySelector(`#mediaPost_${postId}`).value;
+    const updatedTitleBorder = document.querySelector(`#titlePost_${postId}`);
+    const editUrl = `https://api.noroff.dev/api/v1/social/posts/${postId}`;
 
     // Create a PUT request to update the post with the new data
-    const editUrl = `https://api.noroff.dev/api/v1/social/posts/${postId}`;
-    editPost(editUrl, updatedTitle, updatedBody, updatedMedia);
+    // Check if title is empty
+    if (!updatedTitle) {
+      updatedTitleBorder.classList.add("border-danger");
+      updatedTitleBorder.placeholder = "Title is required";
+    } else {
+      editPost(editUrl, updatedTitle, updatedBody, updatedMedia);
+    }
   });
 }

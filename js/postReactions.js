@@ -42,7 +42,6 @@ export function addReactionListeners(postId, postReaction) {
  */
 export async function postReaction(url) {
   const token = localStorage.getItem("accessToken");
-  console.log(token);
   try {
     const postData = {
       method: "PUT",
@@ -56,13 +55,10 @@ export async function postReaction(url) {
     const response = await fetch(url, postData);
     const json = await response.json();
 
-    console.log(response);
     // Store the current scroll position in localStorage
     localStorage.setItem("scrollPosition", window.scrollY);
 
     // Reload the page after editing the post
     window.location.reload();
-  } catch (error) {
-    console.log(error);
-  }
+  } catch (error) {}
 }

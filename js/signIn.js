@@ -74,10 +74,7 @@ async function loginUser(url, userData) {
       },
     };
     const response = await fetch(url, postData);
-    console.log(response);
     const json = await response.json();
-    console.log(json);
-    console.log(json.accessToken);
     const accessToken = json.accessToken;
     localStorage.setItem("accessToken", accessToken);
     localStorage.setItem("name", json.name);
@@ -88,9 +85,7 @@ async function loginUser(url, userData) {
       loginFailed.classList.add("text-danger");
       loginFailed.innerText = "Login failed, please try again.";
     }
-  } catch (error) {
-    console.log(error);
-  }
+  } catch (error) {}
 }
 
 // URL for the login API endpoint

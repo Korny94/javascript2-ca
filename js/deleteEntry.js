@@ -19,16 +19,13 @@ export async function deletePost(url) {
 
     const response = await fetch(url, postData);
     const json = await response.json();
-    console.log(json);
 
     // Store the current scroll position in localStorage
     localStorage.setItem("scrollPosition", window.scrollY);
 
     // Reload the page after editing the post
     window.location.reload();
-  } catch (error) {
-    console.log(error);
-  }
+  } catch (error) {}
 }
 
 /**

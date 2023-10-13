@@ -29,14 +29,12 @@ async function getMyPosts(url) {
       },
     };
     const response = await fetch(url, fetchOptions);
-    console.log(response);
 
     if (!response.ok) {
       throw new Error("Failed to fetch data");
     }
 
     const json = await response.json();
-    console.log(json);
 
     postsContainer.classList.remove("loading");
 
@@ -190,7 +188,6 @@ async function getMyPosts(url) {
     postsContainer.classList.remove("loading");
     postsContainer.classList.add("error");
     postsContainer.innerText = "There was an error!";
-    console.error(error);
   }
 }
 
