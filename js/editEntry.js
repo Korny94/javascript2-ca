@@ -1,5 +1,14 @@
-// editPost.js
-
+/**
+ * @function editPost
+ * @async
+ * @description Edit a post with the specified data.
+ *
+ * @param {string} url - The URL for editing the post.
+ * @param {string} updatedTitle - The updated title for the post.
+ * @param {string} updatedBody - The updated body text for the post.
+ * @param {string} updatedMedia - The updated media link for the post.
+ * @returns {Promise<void>}
+ */
 export async function editPost(url, updatedTitle, updatedBody, updatedMedia) {
   const token = localStorage.getItem("accessToken");
   try {
@@ -30,6 +39,13 @@ export async function editPost(url, updatedTitle, updatedBody, updatedMedia) {
   }
 }
 
+/**
+ * @function editPostEventListener
+ * @description Attach an event listener for editing a post.
+ *
+ * @param {string} postId - The ID of the post to attach the listener to.
+ * @param {object} post - The post data to edit.
+ */
 export function editPostEventListener(postId, post) {
   const editPostButton = document.querySelector(`#editPost_${postId}`);
   const titleInput = document.querySelector(`#editPost_${postId}`);

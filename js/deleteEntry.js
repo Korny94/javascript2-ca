@@ -1,3 +1,11 @@
+/**
+ * @function deletePost
+ * @async
+ * @description Delete a post using the specified URL.
+ *
+ * @param {string} url - The URL for deleting the post.
+ * @returns {Promise<void>}
+ */
 export async function deletePost(url) {
   const token = localStorage.getItem("accessToken");
   try {
@@ -23,7 +31,13 @@ export async function deletePost(url) {
   }
 }
 
-// Function to attach the comment event listener
+/**
+ * @function deletePostEventListener
+ * @description Attach an event listener for deleting a post.
+ *
+ * @param {string} postId - The ID of the post to attach the listener to.
+ * @param {object} post - The post data to delete.
+ */
 export function deletePostEventListener(postId, post) {
   const deletePostButton = document.querySelector(`#deletePost_${postId}`);
 

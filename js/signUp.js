@@ -10,6 +10,13 @@ const signInHere = document.querySelector("#signInHere");
 const signUpForm = document.querySelector("#signUpForm");
 const signInForm = document.querySelector("#signInForm");
 
+/**
+ * @event
+ * @description Event listener for the submit button on the registration form.
+ *
+ * @param {Event} event - The click event.
+ */
+
 submitRegister.addEventListener("click", (event) => {
   event.preventDefault();
 
@@ -62,20 +69,20 @@ submitRegister.addEventListener("click", (event) => {
   registerUser(registerUrl, userToRegister);
 });
 
-// Url for all the api calls
+// Base Url for all the api calls
 const API_BASE_URL = "https://api.noroff.dev";
 
 // SIGN UP USER
-
 /**
- * @param {string} url
- * @param {any} userData
- * ``` js
- * registerUser(registerUrl, userToRegister);
- * ```
+ * @function registerUser
+ * @async
+ * @description Register a user using the provided URL and user data.
+ *
+ * @param {string} url - The URL for the registration API endpoint.
+ * @param {object} userData - The user data to be registered.
+ * @returns {Promise<void>}
  */
 
-// Register user function
 async function registerUser(url, userData) {
   try {
     // Do API call
@@ -108,6 +115,13 @@ async function registerUser(url, userData) {
     console.log(error);
   }
 }
+
+/**
+ * @event
+ * @description Event listener for the "Sign In" link.
+ *
+ * @param {Event} event - The click event.
+ */
 
 signInHere.addEventListener("click", (event) => {
   event.preventDefault();

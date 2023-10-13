@@ -1,20 +1,4 @@
-const toTop = document.querySelector("#toTop");
-
-window.addEventListener("scroll", () => {
-  if (window.pageYOffset > 1000) {
-    toTop.style.opacity = ".6";
-    toTop.style.cursor = "pointer";
-  } else {
-    toTop.style.opacity = "0";
-    toTop.style.cursor = "default";
-  }
-});
-
-toTop.addEventListener("click", () => {
-  if (toTop.style.opacity !== "0") {
-    window.scrollTo(0, 0);
-  }
-});
+// Sorting options
 
 // Define a variable to store the JSON data
 let jsonData = [];
@@ -22,7 +6,10 @@ let jsonData = [];
 // Add an event listener to the select element
 const selectElement = document.querySelector("#floatingSelect");
 
-// Define the event handler function
+/**
+ * @function handleSelectChange
+ * @description Event handler for the select element change event.
+ */
 function handleSelectChange() {
   const selectedValue = parseInt(localStorage.getItem("selectedValue"));
 
@@ -64,21 +51,26 @@ function handleSelectChange() {
   getWithToken(postsUrl, jsonData);
 }
 
-// Add the event listener with the named function as the handler
+/**
+ * @event
+ * @description Event listener for the select element change event.
+ */
 selectElement.addEventListener("change", function () {
   localStorage.setItem("selectedValue", selectElement.value);
   handleSelectChange();
 });
 
-window.addEventListener("load", function () {
-  this.setTimeout(() => {
-    handleSelectChange();
-  }, 1000);
-});
+// Search
 
 // Add an event listener to the search button
 const searchButton = document.querySelector("#searchButton");
 const searchInput = document.querySelector("#searchInput");
+
+/**
+ * @function
+ * @description Event handler for the "keypress" event on the search input.
+ * @param {KeyboardEvent} event - The keyboard event.
+ */
 searchInput.addEventListener("keypress", function (event) {
   if (event.key === "Enter") {
     searchButton.click();
@@ -86,8 +78,10 @@ searchInput.addEventListener("keypress", function (event) {
   }
 });
 
-// Add an event listener to the search button
-
+/**
+ * @event
+ * @description Event listener for the "click" event on the search button.
+ */
 searchButton.addEventListener("click", function () {
   // Get the search term from the input field
   const searchInput = document
@@ -112,6 +106,17 @@ searchButton.addEventListener("click", function () {
   getWithToken(postsUrl, filteredData);
 });
 
+/**
+ * @event
+ * @description Event listener for the window load event.
+ * @description Call the handleSelectChange function after 1 second.
+ */
+window.addEventListener("load", function () {
+  this.setTimeout(() => {
+    handleSelectChange();
+  }, 1000);
+});
+
 // Import the functions from the react module
 import { addReactionListeners, postReaction } from "./postReactions.js";
 import { postComment, attachCommentEventListener } from "./postComment.js";
@@ -121,7 +126,13 @@ import { editPostEventListener } from "./editEntry.js";
 // Append query parameters to the URL to include all optional properties
 const postsUrl = `https://api.noroff.dev/api/v1/social/posts?_author=true&_comments=true&_reactions=true`;
 
-// Fetch and store the JSON data initially and when the page loads
+/**
+ * @function fetchData
+ * @async
+ * @description Fetch and store JSON data initially and when the page loads.
+ *
+ * @returns {Promise<void>}
+ */
 async function fetchData() {
   try {
     const token = localStorage.getItem("accessToken");
@@ -145,10 +156,20 @@ async function fetchData() {
   }
 }
 
-// Initial call to fetchData to populate the jsonData variable
+/**
+ * @function fetchData
+ * @description Initial call to fetchData to populate the jsonData variable
+ */
 fetchData();
 
-// Modify your getWithToken function to accept an additional 'data' parameter
+/**
+ * @function getWithToken
+ * @async
+ * @description Modify the getWithToken function to accept an additional 'data' parameter.
+ *
+ * @param {string} url - The URL to fetch data from.
+ * @param {object[]} data - The JSON data to render.
+ */
 async function getWithToken(url, data) {
   try {
     const postsContainer = document.querySelector("#postsContainer");
@@ -303,15 +324,19 @@ async function getWithToken(url, data) {
       const selectedValue = localStorage.getItem("selectedValue");
       selectElement.value = selectedValue;
     }
+
     // Read the stored scroll position from localStorage
     const scrollPosition = localStorage.getItem("scrollPosition");
+
     // Scroll to the stored position with a delay of 1 second
     setTimeout(() => {
       window.scrollTo(0, scrollPosition);
     }, 1000);
+
     setTimeout(() => {
       localStorage.removeItem("scrollPosition");
     }, 3000);
+
     if (postsContainer.innerHTML === "" && searchInput !== "") {
       // No matching posts found, display a message
       setTimeout(() => {
@@ -325,6 +350,8 @@ async function getWithToken(url, data) {
     postsContainer.classList.remove("loading");
     postsContainer.classList.add("error");
     postsContainer.innerText = "There was an error!";
+    postsContainer.style.textAlign = "center";
+    postsContainer.style.fontSize = "1.2rem";
     console.log(error);
   }
 }

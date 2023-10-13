@@ -7,8 +7,17 @@ const postsContainer = document.querySelector("#profilePosts");
 
 const username = localStorage.getItem("name");
 
+// Url for the posts API endpoint
 const postsUrl = `https://api.noroff.dev/api/v1/social/profiles/${username}/posts?_author=true&_comments=true&_reactions=true`;
 
+/**
+ * @function getMyPosts
+ * @async
+ * @description Fetch and display the user's posts on their profile page.
+ *
+ * @param {string} url - The URL to fetch the user's posts.
+ * @returns {Promise<void>} A Promise that resolves when the posts are fetched and displayed.
+ */
 async function getMyPosts(url) {
   try {
     const token = localStorage.getItem("accessToken");
@@ -185,4 +194,8 @@ async function getMyPosts(url) {
   }
 }
 
+/**
+ * @function
+ * @description Call the `getMyPosts` function to retrieve and display user's posts.
+ */
 getMyPosts(postsUrl);

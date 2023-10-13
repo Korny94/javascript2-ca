@@ -1,3 +1,12 @@
+/**
+ * @function postComment
+ * @async
+ * @description Post a comment on a specific URL.
+ *
+ * @param {string} url - The URL to post the comment to.
+ * @param {string} commentText - The text of the comment to be posted.
+ * @returns {Promise<void>}
+ */
 export async function postComment(url, commentText) {
   const token = localStorage.getItem("accessToken");
   try {
@@ -25,7 +34,12 @@ export async function postComment(url, commentText) {
   }
 }
 
-// Function to attach the comment event listener
+/**
+ * @function attachCommentEventListener
+ * @description Attach the comment event listener to the specified post.
+ *
+ * @param {string} postId - The ID of the post to attach the listener to.
+ */
 export function attachCommentEventListener(postId) {
   const sendCommentButton = document.querySelector(`#sendComment_${postId}`);
   const commentInput = document.querySelector(`#textComment_${postId}`);

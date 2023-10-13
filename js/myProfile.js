@@ -6,8 +6,16 @@ const following = document.querySelector("#following");
 
 const title = document.querySelector("title");
 
+// Set the title of the HTML document based on the user's name.
 title.innerHTML = localStorage.getItem("name") + "'s Profile" + " | TeeTalk";
 
+/**
+ * @function getProfile
+ * @async
+ * @description Fetch and display the user's profile information.
+ *
+ * @returns {Promise<void>}
+ */
 async function getProfile() {
   try {
     const username = localStorage.getItem("name");
@@ -85,10 +93,18 @@ async function getProfile() {
   }
 }
 
+/**
+ * @function
+ * @description Call the getProfile function to fetch and display the profile information
+ */
 getProfile();
 
 const follow = document.querySelector("#follow");
 
+/**
+ * @event
+ * @description Handle the "Follow" button click event.
+ */
 follow.onclick = function () {
   alert("You can't follow yourself!");
 };

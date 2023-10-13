@@ -3,12 +3,19 @@ const banner = document.querySelector("#bannerPic");
 const profileName = document.querySelector("#profileName");
 const followers = document.querySelector("#followers");
 const following = document.querySelector("#following");
-
 const title = document.querySelector("title");
 
+// Set the title of the HTML document based on the other profile's name.
 title.innerHTML =
   localStorage.getItem("otherProfile") + "'s Profile" + " | TeeTalk";
 
+/**
+ * @function getProfile
+ * @async
+ * @description Fetch and display the other user's profile information.
+ *
+ * @returns {Promise<void>}
+ */
 async function getProfile() {
   try {
     const username = localStorage.getItem("otherProfile");
@@ -87,4 +94,8 @@ async function getProfile() {
   }
 }
 
+/**
+ * @function
+ * @description Call the getProfile function to fetch and display the profile information
+ */
 getProfile();

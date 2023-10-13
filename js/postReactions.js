@@ -1,4 +1,10 @@
-// Function to add click event listeners for reactions
+/**
+ * @function addReactionListeners
+ * @description Add click event listeners for reactions.
+ *
+ * @param {string} postId - The ID of the post to attach the listeners to.
+ * @param {Function} postReaction - The function to handle post reactions.
+ */
 export function addReactionListeners(postId, postReaction) {
   const thumbsUp = document.querySelector(`#thumbsUp_${postId}`);
   const thumbsDown = document.querySelector(`#thumbsDown_${postId}`);
@@ -26,7 +32,14 @@ export function addReactionListeners(postId, postReaction) {
   });
 }
 
-// Function to handle post reactions
+/**
+ * @function postReaction
+ * @async
+ * @description Handle post reactions.
+ *
+ * @param {string} url - The URL to send the reaction request.
+ * @returns {Promise<void>}
+ */
 export async function postReaction(url) {
   const token = localStorage.getItem("accessToken");
   console.log(token);

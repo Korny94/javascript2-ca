@@ -1,6 +1,14 @@
 const avatarPic = document.querySelector("#profilePic");
 const bannerPic = document.querySelector("#bannerPic");
 
+/**
+ * @function editAvatar
+ * @async
+ * @description Edit the user's avatar.
+ * @param {string} avatarUrl - The URL of the new avatar image.
+ * @returns {Promise<void>}
+ */
+
 async function editAvatar(avatarUrl) {
   const token = localStorage.getItem("accessToken");
   const username = localStorage.getItem("name");
@@ -26,6 +34,14 @@ async function editAvatar(avatarUrl) {
     console.log(error);
   }
 }
+
+/**
+ * @function editBanner
+ * @async
+ * @description Edit the user's banner image.
+ * @param {string} bannerUrl - The URL of the new banner image.
+ * @returns {Promise<void>}
+ */
 
 async function editBanner(bannerUrl) {
   const token = localStorage.getItem("accessToken");
@@ -53,7 +69,11 @@ async function editBanner(bannerUrl) {
   }
 }
 
-// Function to attach the edit media event listener
+/**
+ * @function editMediaEventListener
+ * @description Attach event listeners to the profile picture and banner picture for editing media.
+ */
+
 function editMediaEventListener() {
   bannerPic.addEventListener("click", () => {
     const bannerUrl = prompt("Enter new banner-image URL");
@@ -72,4 +92,8 @@ function editMediaEventListener() {
   });
 }
 
+/**
+ * @function
+ * @description Initialize the media editing event listener.
+ */
 editMediaEventListener();

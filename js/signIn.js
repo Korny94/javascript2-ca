@@ -6,7 +6,15 @@ const popoverMessage2 = document.querySelector("#popoverMessage2");
 const loginFailed = document.querySelector("#loginFailed");
 const signUpHere = document.querySelector("#signUpHere");
 
+// Hide the sign up form and show the sign in form
 signInForm.style.display = "none";
+
+/**
+ * @event
+ * @description Event listener for the submit button on the login form.
+ *
+ * @param {Event} event - The click event.
+ */
 
 submitLogin.addEventListener("click", (event) => {
   event.preventDefault();
@@ -47,11 +55,13 @@ submitLogin.addEventListener("click", (event) => {
 // SIGN IN USER
 
 /**
- * @param {string} url
- * @param {any} userData
- * ``` js
- * loginUser(loginUrl, userToLogin);
- * ```
+ * @function loginUser
+ * @async
+ * @description Sign in a user using the provided URL and user data.
+ *
+ * @param {string} url - The URL for the login API endpoint.
+ * @param {object} userData - The user data to be used for login.
+ * @returns {Promise<void>}
  */
 
 async function loginUser(url, userData) {
@@ -83,7 +93,15 @@ async function loginUser(url, userData) {
   }
 }
 
+// URL for the login API endpoint
 const loginUrl = `${API_BASE_URL}/api/v1/social/auth/login`;
+
+/**
+ * @event
+ * @description Event listener for the "Sign Up" link.
+ *
+ * @param {Event} event - The click event.
+ */
 
 signUpHere.addEventListener("click", (event) => {
   event.preventDefault();

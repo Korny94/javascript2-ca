@@ -1,3 +1,10 @@
+/**
+ * @function createPost
+ * @async
+ * @description Create a new post using the specified data.
+ *
+ * @returns {Promise<void>}
+ */
 async function createPost() {
   try {
     const title = document.querySelector("#titlePost").value;
@@ -50,4 +57,9 @@ async function createPost() {
 
 // Event listener for creating a post
 const createPostButton = document.querySelector("#createPostButton");
+
+/**
+ * @event
+ * @description Event listener for creating a post when the button is clicked.
+ */
 createPostButton.addEventListener("click", createPost);

@@ -4,8 +4,18 @@ import { deletePostEventListener } from "./deleteEntry.js";
 import { editPostEventListener } from "./editEntry.js";
 
 const postsContainer = document.querySelector("#profilePosts");
+
+// Url for the posts API endpoint
 const postsUrl = `https://api.noroff.dev/api/v1/social/profiles/${username}/posts?_author=true&_comments=true&_reactions=true`;
 
+/**
+ * @function getProfilePosts
+ * @async
+ * @description Fetch and display profile posts.
+ *
+ * @param {string} postsUrl - The URL to fetch profile posts.
+ * @returns {Promise<void>}
+ */
 async function getProfilePosts() {
   try {
     const token = localStorage.getItem("accessToken");
@@ -182,4 +192,8 @@ async function getProfilePosts() {
   }
 }
 
+/**
+ * @function
+ * @description Call the getProfilePosts function with the specified URL.
+ */
 getProfilePosts(postsUrl);
