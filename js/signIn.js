@@ -101,5 +101,6 @@ const loginUrl = `${API_BASE_URL}/api/v1/social/auth/login`;
 signUpHere.addEventListener("click", (event) => {
   event.preventDefault();
   signInForm.style.display = "none";
+  const signUpForm = document.querySelector("#signUpForm");
   signUpForm.style.display = "block";
 });
