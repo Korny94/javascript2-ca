@@ -87,18 +87,22 @@ searchButton.addEventListener("click", function () {
   const searchInput = document
     .querySelector("#searchInput")
     .value.toLowerCase();
-
   // Filter the JSON data based on the search term
   const filteredData = jsonData.filter((post) => {
-    const authorName = post.author.name.toLowerCase();
-    const title = post.title.toLowerCase();
-    const body = post.body.toLowerCase();
-    const tags = post.tags;
+    const authorName =
+      typeof post.author.name === "string"
+        ? post.author.name.toLowerCase()
+        : "";
+    const title =
+      typeof post.title === "string" ? post.title.toLowerCase() : "";
+    const body = typeof post.body === "string" ? post.body.toLowerCase() : "";
+    const tags = Array.isArray(post.tags) ? post.tags : [];
+
     return (
-      authorName.includes(searchInput) ||
-      title.includes(searchInput) ||
-      body.includes(searchInput) ||
-      tags.includes(searchInput)
+      authorName.includes(searchInput.toLowerCase()) ||
+      title.includes(searchInput.toLowerCase()) ||
+      body.includes(searchInput.toLowerCase()) ||
+      tags.includes(searchInput.toLowerCase())
     );
   });
 
