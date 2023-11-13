@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js"
+      integrity="sha512-H+rglffZ6f5gF7UJgvH4Naa+fGCgjrHKMgoFOGmcPTRwR6oILo5R+gtzNrpDp7iMV3udbymBVjkeZGNz1Em4rQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <link rel="icon" href="../assets/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/dist/css/styles.css" />
+    <script src="/src/scss/bootstrap.bundle.min.js" defer></script>
+    <script src="/js/othersProfile.js" defer></script>
+    <script src="/js/follow.js" defer></script>
+    <script src="/js/profilePosts.js" defer type="module"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+      <a href="/html/feed.html" class="logoLink"
+        ><img
+          src="/assets/logo.png"
+          class="img-fluid ms-3"
+          alt="TeeTalk Logo"
+          id="logo"
+        />
+      </a>
+      <button
+        class="navbar-toggler me-3"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="collapse navbar-collapse justify-content-end me-3"
+        id="navbarSupportedContent"
+      >
+        <ul class="nav nav-pills d-flex justify-content-center">
+          <li class="nav-item">
+            <a class="nav-link" href="/html/profile.html">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/html/feed.html">Feed</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Log out</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <main class="container mb-5" id="profileBannerPic">
+      <div class="row align-items-center m-auto" id="">
+        <div class="col-12 d-flex justify-content-center" id="">
+          <img class="bannerPic" id="bannerPic" src="" alt="" />
+        </div>
+      </div>
+      <div class="row mt-5 d-flex align-items-center m-auto" id="">
+        <div class="col-sm-12 col-md-6 d-flex flex-column align-items-center">
+          <img class="profilePic" id="profilePic" src="" alt="" />
+          <h2 class="profileName text-center" id="profileName"></h2>
+        </div>
+        <div class="col-sm-12 col-md-4 mt-2 d-flex flex-column gap-4">
+          <button class="btn btn-primary" id="follow">Follow</button>
+          <button class="btn btn-primary" id="unfollow">Unfollow</button>
+          <button
+            class="btn btn-secondary"
+            id="followers"
+            data-bs-toggle="modal"
+            data-bs-target="#followersModal"
+          ></button>
+          <button
+            class="btn btn-secondary"
+            id="following"
+            data-bs-toggle="modal"
+            data-bs-target="#followersModal"
+          ></button>
+        </div>
+      </div>
+      <div
+        class="modal fade"
+        id="followersModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Followers</h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body" id="followersModalBody"></div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="profilePosts"></div>
+    </main>
+  </body>
+</html>
