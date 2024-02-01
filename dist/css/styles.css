@@ -12197,6 +12197,7 @@ input {
 }
 
 #signInForm {
+  display: none;
   height: 400px;
 }
 

@@ -6,9 +6,6 @@ const popoverMessage2 = document.querySelector("#popoverMessage2");
 const loginFailed = document.querySelector("#loginFailed");
 const signUpHere = document.querySelector("#signUpHere");
 
-// Hide the sign up form and show the sign in form
-signInForm.style.display = "none";
-
 setTimeout(() => {
   alert(
     "To test the application, please use the following credentials: \n\nEmail: testkarl@noroff.no \nPassword: testkarl"
