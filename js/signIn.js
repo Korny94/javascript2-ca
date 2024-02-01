@@ -9,6 +9,12 @@ const signUpHere = document.querySelector("#signUpHere");
 // Hide the sign up form and show the sign in form
 signInForm.style.display = "none";
 
+setTimeout(() => {
+  alert(
+    "To test the application, please use the following credentials: \n\nEmail: testkarl@noroff.no \nPassword: testkarl"
+  );
+}, 1000);
+
 /**
  * @event
  * @description Event listener for the submit button on the login form.
