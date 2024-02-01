@@ -1,0 +1,21 @@
+{
+  "name": "javascript2-ca",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "sass src/scss:dist/css",
+    "watch": "sass --watch src/scss:dist/css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.2",
+    "dompurify": "^3.0.6"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "sass": "^1.68.0"
+  }
+}

@@ -1,0 +1,376 @@
+@import "variables";
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+.logoLink {
+  min-width: 2rem;
+  max-width: 4rem;
+  width: 4%;
+}
+
+.loading {
+  margin: auto;
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #3498db;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 2000ms linear infinite;
+  padding: 2rem;
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin-top: 6rem;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.reactions {
+  margin: 0.5rem 0.4rem 0 0;
+  padding-top: 0;
+  padding-left: 0;
+  width: 5.5rem;
+  max-height: 4rem;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.comments {
+  max-height: 10rem;
+  overflow: scroll;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.commentAvatar,
+.followersAvatar {
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+}
+
+.postImage {
+  margin: auto;
+  width: 95%;
+  max-height: 70vh;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 3px solid black;
+  box-shadow: 0 0 10px 5px rgb(0, 0, 0, 0.1);
+}
+
+.card {
+  max-width: 40rem;
+  // border: 3.5px solid rgba(147, 190, 255, 0.616);
+  border: 3.5px solid #0523509f;
+
+  border-radius: 15px;
+  padding: 1rem;
+  box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.1);
+}
+
+.topBody {
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+body {
+  background-color: rgba(247, 247, 247, 0.289);
+  margin-top: 6rem;
+  scroll-behavior: smooth;
+  min-height: 85vh;
+}
+
+main {
+  min-height: 75vh;
+}
+
+html::-webkit-scrollbar,
+.comments::-webkit-scrollbar,
+.loginForm::-webkit-scrollbar,
+textarea::-webkit-scrollbar,
+.reactions::-webkit-scrollbar {
+  width: 15px;
+}
+
+html::-webkit-scrollbar-thumb,
+.comments::-webkit-scrollbar-thumb,
+.loginForm::-webkit-scrollbar-thumb,
+textarea::-webkit-scrollbar-thumb,
+.reactions::-webkit-scrollbar-thumb {
+  background-color: #94949c6e;
+  border-radius: 4px;
+}
+
+.navbar {
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.1);
+}
+
+#logo,
+button,
+.active {
+  border-radius: 50%;
+  box-shadow: 0 2px 6px 2px rgba(0, 0, 0, 0.1);
+}
+
+input {
+  box-shadow: 0 1px 6px 1px rgba(133, 133, 133, 0.1);
+}
+
+.list-group-item,
+.card-text {
+  border: none;
+  font-size: 1.5rem;
+}
+
+.border {
+  border-radius: 20px;
+  box-shadow: 0 0 2px 0.6px rgba(0, 0, 0);
+}
+
+.btn-close {
+  box-shadow: none;
+  transition-duration: 300ms;
+}
+
+.card-title {
+  text-align: center;
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.bodyReactions {
+  margin: 0;
+  padding: 0;
+}
+
+.bold {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.react {
+  height: fit-content;
+  cursor: pointer;
+  margin: 0.5rem;
+  font-size: 1.5rem;
+  transition-duration: 300ms;
+}
+
+.react:hover {
+  transform: scale(1.3);
+}
+
+.commentPost {
+  margin-top: 0.35rem;
+  border-radius: 10px;
+  border: 2px solid rgba(147, 190, 255, 0.5);
+  background-color: rgb(238, 238, 238, 0.2);
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.5);
+  padding-right: 5rem;
+  border-radius: 40px;
+}
+
+.smallText {
+  font-size: 1rem;
+}
+
+.commentName {
+  padding: 0;
+  font-weight: 600;
+}
+
+.commentCount {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.postedId {
+  padding-top: 0;
+}
+
+.send {
+  z-index: 100;
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  margin-right: 0.5rem;
+  margin-top: 0.3rem;
+  cursor: pointer;
+  transition-duration: 300ms;
+  right: 2rem;
+}
+
+.send:hover {
+  transform: scale(1.2);
+}
+
+.commentGroup {
+  padding: 1rem;
+  padding-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.singleComment {
+  font-size: 1.1rem;
+  padding-left: 4rem;
+  padding-right: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.card > .list-group {
+  border-top: 2px solid #0523509f;
+  border-bottom: 2px solid #0523509f;
+}
+
+.editBtn {
+  width: 30px;
+  cursor: pointer;
+  transition-duration: 300ms;
+}
+
+.editBtn:hover,
+.btn-close:hover {
+  transform: scale(1.2);
+}
+
+.editDeleteBtns {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.authorName {
+  max-width: 35vw;
+  font-size: 1.2rem;
+  margin-left: 3rem;
+}
+
+.follower-name {
+  margin-left: 3.5rem;
+  margin-top: 0.5rem;
+}
+
+.profilePic {
+  width: 15vw;
+  height: 15vw;
+  min-width: 150px;
+  min-height: 150px;
+  max-width: 300px;
+  max-height: 300px;
+  border-radius: 100%;
+  border: 3px solid black;
+  box-shadow: 0 0 10px 5px rgb(0, 0, 0, 0.1);
+  object-fit: cover;
+  cursor: pointer;
+  transition-duration: 300ms;
+}
+
+.profileName {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  max-width: 250px;
+}
+
+.bannerPic {
+  height: 30vh;
+  width: 50vw;
+  min-width: 340px;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 3px solid black;
+  box-shadow: 0 0 10px 5px rgb(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition-duration: 300ms;
+  object-position: top;
+}
+
+.bannerPic:hover,
+.profilePic:hover {
+  transform: scale(1.02);
+}
+
+.comment-card {
+  word-break: break-all;
+  cursor: pointer;
+}
+
+.follower-card {
+  cursor: pointer;
+  transition-duration: 300ms;
+  box-shadow: 0 0 3px 1.5px rgb(0, 0, 0, 0.1);
+}
+
+.follower-card:hover {
+  transform: scale(1.02);
+}
+
+#otherProfile {
+  cursor: pointer;
+}
+
+.loginForm {
+  max-width: 700px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 15px;
+  box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.formHeight {
+  height: 30vh;
+}
+
+#submitRegister,
+#submitLogin {
+  max-height: 50px;
+}
+
+#signUpForm {
+  height: 420px;
+}
+
+#signInForm {
+  display: none;
+  height: 400px;
+}
+
+#sortBy {
+  position: absolute;
+  left: 0.5rem;
+}
+
+.feedInputs {
+  width: 100%;
+  overflow: hidden;
+  max-width: 40rem;
+}
+
+.toTop {
+  width: 70px;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 100;
+  transition-duration: 300ms;
+  opacity: 0;
+}
+
+.toTop:hover {
+  transform: scale(1.1);
+}
